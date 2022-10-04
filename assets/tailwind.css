@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		@apply font-main;
+		@apply break-words;
+		@apply leading-normal;
+		@apply subpixel-antialiased;
+	}
+	body {
+		@apply text-white;
+		@apply bg-some-dark;
+	}
+	img {
+		@apply object-cover;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	time {
+		@apply leading-tight;
+		@apply mb-5;
+	}
+	h1,
+	.h1 {
+		@apply text-4xl lg:text-5xl;
+		@apply lg:mb-8 mb-4;
+		@apply uppercase;
+	}
+	h2,
+	.h2 {
+		@apply text-3xl lg:text-4xl;
+		@apply lg:mb-8 mb-4;
+		@apply uppercase;
+	}
+	h3,
+	.h3 {
+		@apply text-2xl lg:text-3xl;
+	}
+	h4 {
+		@apply text-lg lg:text-xl;
+	}
+	h5 {
+		@apply text-base;
+	}
+	p {
+		@apply text-base mb-4;
+		@apply font-light;
+	}
+	a {
+		@apply hover:underline;
+	}
+	small {
+		@apply text-small;
+	}
+	pre {
+		@apply text-white;
+	}
+	dl {
+		@apply text-base;
+	}
+	dt {
+		@apply font-bold;
+		@apply font-neon;
+	}
+}
+
+@layer components {
+	.wrap {
+		@apply grid grid-cols-6 gap-5;
+		&-full {
+			@apply grid grid-cols-6 md:grid-cols-12 gap-5;
+		}
+	}
+
+	.text-shadow {
+		text-shadow: 2px 3px 2px rgb(0 0 0 / 30%), 0 0 5px #e82882, 0 0 30px #945aa4;
+	}
+	.text-neon {
+		@apply text-main-light;
+
+		text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #f7f, 0 0 0.6em #f0f, 0 0 0.8em #f0f, 0 0 1em #f0f,
+			0 0 1.2em #f0f;
+	}
+	.stretch {
+		&:after {
+			@apply absolute inset-0 content-[''] z-10;
+		}
+	}
+}
+
+@layer utilities {
+	.scrollbar {
+		/* &::-webkit-scrollbar {
+			@apply w-1.5;
+		} */
+		&::-webkit-scrollbar-track {
+			@apply bg-sec-light;
+		}
+		&::-webkit-scrollbar-thumb {
+			@apply border-2;
+			@apply bg-main-darker;
+			@apply rounded-full;
+		}
+	}
+	.fade-enter-active {
+		@apply transition-opacity duration-300 ease-in-out;
+	}
+
+	.fade-enter-from,
+	.fade-leave-to {
+		@apply opacity-0 duration-300;
+	}
+
+	.page-enter-active {
+		@apply transition-opacity duration-300 ease-in-out;
+	}
+
+	.page-enter-from,
+	.page-leave-to {
+		@apply opacity-0 duration-300;
+	}
+}

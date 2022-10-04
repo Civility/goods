@@ -1,0 +1,30 @@
+{
+	"name": "Name1",
+	"address": "address №1",
+	"img": {
+		"foto": "@/happy.webp",
+		"alt": "alt img"
+	},
+	"options": {
+		"age": "25",
+		"size": "3",
+		"tall": "170",
+		"services": [
+			"all",
+			"services1",
+			"services2",
+			"services3"
+		]
+	},
+	"price": {
+		"min": "3000",
+		"max": "6000"
+	},
+	"slider": [
+		"mini.webp",
+		"mini.webp",
+		"mini.webp",
+		"mini.webp"
+	],
+	"about": "<p>text, text ,text</p>"
+}
