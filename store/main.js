@@ -6,58 +6,82 @@ const sortOrder = (a, b) => {
 const replaceNumber = (number) => {
 	return number.replace(/[^0-9]/g, '')
 }
-export const useMainStore = defineStore('main', {
+export const useMain = defineStore('main', {
 	state: () => ({
-		toggleMenu: false,
-		modalOpen: false,
-		modalClose: true,
-		modalToggle: false,
-		phone1: '+7 (812) 333-33-41',
-		phone2: '+7 (812) 333-33-42',
-		phone3: '+7 (812) 333-33-43',
-		socials: [
-			{ title: 'telegram', url: '#', icon: 'telegram.svg' },
-			{ title: 'whatsapp', url: '#', icon: 'whatsapp.svg' },
+		TOGGLEMENU: false,
+
+		MODALOPEN: false,
+		MODALCLOSE: true,
+		MODALTOGGLE: false,
+		PHONE1: '+7 (812) 333-33-41',
+		PHONE2: '+7 (812) 333-33-42',
+		SOCIALS: [
+			{ title: 'telegram', url: '#', icon: 'telegram' },
+			{ title: 'whatsapp', url: '#', icon: 'whatsapp' },
 		],
-		docs: [{ title: 'Пользовательское соглашение', url: '#' }],
-		copyright: {
+		CONTACT: [],
+		DOCS: [{ title: 'Пользовательское соглашение', url: '#' }],
+		COPYRIGHT: {
 			low: '© Все права зарегистрированы.',
 			inn: 'ООО "goods Финанс"',
 		},
-		address: ['м.Комендантский пр.', 'м.Пионерская'],
-		nowDate: new Date().getFullYear(),
-		goodslength: null,
-		goods: [],
-		staff: {},
+		ADDRESS: ['м.Комендантский пр.', 'м.Пионерская'],
+		NOWDATE: new Date().getFullYear(),
+		GOODSLENGTH: null,
+		GOODS: [],
+		STAFF: {},
 	}),
 	getters: {
-		PHONE1: (s) => replaceNumber(s.phone1),
-		PHONE2: (s) => replaceNumber(s.phone2),
-		PHONE3: (s) => replaceNumber(s.phone3),
-		TOGGLEMENU: (s) => s.toggleMenu,
-		MODALOPEN: (s) => (s.modalOpen = true),
-		MODALCLOSE: (s) => (s.modalClose = false),
-		MODALTOGGLE: (s) => s.modalToggle,
-		GOODSLENGTH: (s) => s.goodslength,
-		GOODS: (s) => s.goods,
-		STAFF: (s) => s.staff,
+		phone1: (s) => replaceNumber(s.PHONE1),
+		phone2: (s) => replaceNumber(s.PHONE2),
+		contact: (s) =>
+			(s.CONTACT = [
+				{
+					address: {
+						city: 'Кингисепп',
+						street: 'ул. Парижская, д. 1',
+					},
+					number: replaceNumber(s.PHONE1),
+					phone: s.PHONE1,
+				},
+				{
+					address: {
+						city: 'Всеволожск',
+						street: 'ул. Венгерская, д. 14',
+					},
+					number: replaceNumber(s.PHONE2),
+					phone: s.PHONE2,
+				},
+			]),
+		toggleMenu: (s) => s.TOGGLEMENU,
+
+		modalOpen: (s) => (s.MODALOPEN = true),
+		modalClose: (s) => (s.MODALCLOSE = false),
+		modalToggle: (s) => s.MODALTOGGLE,
+		goodsLength: (s) => s.GOODSLENGTH,
+		goods: (s) => s.GOODS,
+		staff: (s) => s.STAFF,
 	},
 	actions: {
-		getMenuToggle() {
-			this.toggleMenu = !this.toggleMenu
+		async getContactData() {
+			await this.contact
 		},
+		getMenuToggle() {
+			this.TOGGLEMENU = !this.TOGGLEMENU
+		},
+
 		getMenuClosed() {
-			this.toggleMenu = false
+			this.TOGGLEMENU = false
 		},
 		getModalToggle(val) {
-			this.modalToggle = val
+			this.MODALTOGGLE = val
 		},
 		async getGoods() {
 			if (!this.GOODS.length) {
 				try {
 					const API = await $fetch(`${localAPI}local/goods.json`)
-					this.goodslength = API.length
-					return (this.goods = API.sort(sortOrder))
+					this.GOODSLENGTH = API.length
+					return (this.GOODS = API.sort(sortOrder))
 				} catch (err) {
 					console.log(err)
 				}
@@ -65,7 +89,7 @@ export const useMainStore = defineStore('main', {
 		},
 		async getStaff(url) {
 			try {
-				this.staff = await $fetch(`${localAPI}local/${url}.json`)
+				this.STAFF = await $fetch(`${localAPI}local/${url}.json`)
 			} catch (err) {
 				console.log(err)
 				await navigateTo(`/`)

@@ -1,5 +1,5 @@
 <template>
-	<component :is="isComponent" class="btn" :class="isClass" :type="isType" :to="link">
+	<component :is="isComponent" class="btn" :class="isClass" :type="isType" :to="to">
 		<slot />
 	</component>
 </template>
@@ -9,27 +9,18 @@ definePageMeta({
 	keepalive: true,
 })
 const props = defineProps({
-	link: {
-		type: String,
-		default: null,
-	},
-	sec: {
-		type: Boolean,
-	},
-	clear: {
-		type: Boolean,
-	},
-	clip: {
-		type: Boolean,
-	},
+	to: String,
+	sec: Boolean,
+	clean: Boolean,
+	glue: Boolean,
 })
-const isComponent = computed(() => (props.link ? NuxtLink : 'button'))
+const isComponent = computed(() => (props.to ? NuxtLink : 'button'))
 const isType = computed(() => (isComponent != 'button' ? null : 'button'))
 const isClass = computed(() => {
 	return {
 		btn__sec: props.sec,
-		btn__clear: props.clear,
-		btn__clip: props.clip,
+		btn__clear: props.clean,
+		btn__glue: props.glue,
 	}
 })
 </script>
@@ -53,12 +44,12 @@ const isClass = computed(() => {
 
 	&__sec {
 		@apply !bg-sec hover:bg-sec-darker;
-		@apply box-decoration-clone bg-gradient-to-r from-sec    to-main;
+		@apply box-decoration-clone bg-gradient-to-r from-sec to-main;
 	}
 	&__clear {
-		@apply rounded-none hover:bg-transparent hover:shadow-none w-auto bg-transparent text-main !bg-none;
+		@apply rounded-none hover:bg-transparent hover:shadow-none w-auto bg-transparent !bg-none;
 	}
-	&__clip {
+	&__glue {
 		@apply after:absolute after:inset-0 after:content-[''] after:z-10;
 	}
 }

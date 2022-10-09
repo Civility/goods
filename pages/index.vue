@@ -2,43 +2,45 @@
 	<main class="relative overflow-hidden">
 		<section
 			@mousemove="mouseWatch"
-			class="banner relative h-[90vh] bg-no-repeat bg-cover bg-scroll"
+			class="relative bg-no-repeat bg-cover bg-scroll py-15"
 			style="background-image: url('/img/bg.webp');"
 		>
 			<MouseParallax x="50" y="50" :mouseX="elX" :mouseY="elY" class="mouse-parallax__main" v-if="useMq().mdPlus" />
 			<MouseParallax x="50" y="10" :mouseX="elX" :mouseY="elY" class="mouse-parallax__sec" v-if="useMq().mdPlus" />
 			<MouseParallax x="10" y="50" :mouseX="elX" :mouseY="elY" class="mouse-parallax__some" v-if="useMq().mdPlus" />
-			<div class="flex flex-col justify-center items-center w-full h-full gap-12">
-				<div class="z-10 flex flex-wrap gap-6 justify-center">
-					<Button class="shadow-neon min-w-[14rem] uppercase gap-2" :link="`//t.me/${PHONE1}`">
-						<i class="border border-main-lighter rounded-full w-10 h-10 flex items-center justify-center">
-							<img src="/assets/svg/telegram.svg" width="24" height="24" alt="telegram"
-						/></i>
-						Telegram
-					</Button>
-					<Button class="shadow-neon z-10 min-w-[14rem] uppercase gap-2" :link="`//wa.me/${PHONE2}`">
-						<i class="border border-main-lighter rounded-full w-10 h-10 flex items-center justify-center">
-							<img src="/assets/svg/whatsapp.svg" width="24" height="24" alt="whatsapp"
-						/></i>
-						Whatsapp
-					</Button>
+			<div class="container flex flex-col justify-center items-center w-full h-full gap-12 md:px-20">
+				<div class="relative z-10 flex flex-col gap-6 justify-center items-center shadow-neon backdrop-blur rounded-md py-10 px-5">
+					<div class="text-xl border border-dark px-5 py-3 bg-dark/70 rounded-lg lg:mx-24 mx-10">
+						<h1 class="uppercase text-center mb-2">Realy my dolor</h1>
+						<p>
+							Corporis repellat nobis impedit velit excepturi, sint porro soluta quod rem. Quae dolore autem rerum numquam
+							excepturi rem impedit dicta quaerat tempora iusto. Maxime vitae earum, numquam qui dolor iure. Odio veniam sequi
+							expedita molestias a saepe ipsum numquam mollitia eligendi soluta inventore at amet repellendus doloribus
+							debitis libero, esse veritatis porro? Quaerat sapiente eligendi minus quasi, eveniet reiciendis adipisci?
+						</p>
+					</div>
+					<Btn class="shadow-neon gap-2 md:!w-80 !w-full" :to="`//t.me/${phone1}`">
+						<Icon svg="telegram" class="border-main-lighter" />
+					</Btn>
+					<Btn class="shadow-neon z-10 gap-2 md:!w-80 !w-full" :to="`//wa.me/${phone2}`">
+						<Icon svg="whatsapp" class="border-main-lighter" />
+					</Btn>
 				</div>
-				<div class="absolute w-[90vw] h-[80vh] bg-white bg-opacity-20 backdrop-blur rounded-md shadow-neon" />
 			</div>
 		</section>
 		<section class="container md:py-10 py-8">
 			<div class="wrap-full lg:gap-10 mb-8">
 				<LazyCard
-					v-for="staff in GOODSLIST"
+					v-for="staff in goodslist"
 					:key="staff.url"
 					class="lg:col-span-3 md:col-span-4 sm:col-span-3 col-span-full"
 					:data="staff"
 				/>
 			</div>
 			<div class="col-span-full">
-				<Button @click="addShow()" class="!w-full !py-4">
+				<Btn @click="addShow()" class="!w-full !py-4">
 					{{ textShow }}
-				</Button>
+				</Btn>
 			</div>
 		</section>
 	</main>
@@ -46,11 +48,11 @@
 <script setup>
 import { useMq } from 'vue3-mq'
 import { storeToRefs, mapActions } from 'pinia'
-import { useMainStore } from '@/store/main.js'
+import { useMain } from '@/store/main.js'
 
-const { getGoods, PHONE1, PHONE2 } = useMainStore()
-const { GOODS, GOODSLENGTH } = storeToRefs(useMainStore())
-const { pending: goodsWait, data: goods } = await useLazyAsyncData('goods', () => getGoods())
+const { getGoods, phone1, phone2 } = useMain()
+const { goods, goodsLength } = storeToRefs(useMain())
+const { pending: goodsWait, data: goodsData } = await useLazyAsyncData('goods', () => getGoods())
 
 const elX = shallowRef(0)
 const elY = shallowRef(0)
@@ -58,8 +60,8 @@ const mouseWatch = (val) => {
 	elX.value = val.clientX / window.innerWidth
 	elY.value = val.clientY / window.innerHeight
 }
-const GOODSREF = ref(GOODS)
-const total = shallowRef(GOODSLENGTH)
+const goodsref = ref(goods)
+const total = shallowRef(goodsLength)
 
 const size = shallowRef(useMq().smPlus ? 4 : 2)
 const SizeStatic = shallowRef(useMq().smPlus ? 4 : 2)
@@ -67,7 +69,7 @@ const addItem = shallowRef(useMq().smPlus ? 4 : 2)
 
 const textShow = computed(() => (size.value >= total.value ? 'Скрыть' : 'Показать ещё'))
 
-const GOODSLIST = computed(() => GOODSREF.value.slice(0, size.value))
+const goodslist = computed(() => goodsref.value.slice(0, size.value))
 
 const addShow = () => (total.value > size.value ? (size.value += addItem.value) : (size.value = SizeStatic.value))
 </script>
@@ -81,7 +83,6 @@ const addShow = () => (total.value > size.value ? (size.value += addItem.value) 
 	}
 	&__sec {
 		@apply right-40 bottom-1/4;
-
 		@apply w-32 h-32;
 		@apply border-sec-light;
 		@apply shadow-secLight;

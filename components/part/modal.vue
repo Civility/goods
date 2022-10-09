@@ -20,13 +20,13 @@
 				<div class="flex items-center justify-center min-h-screen pt-24 text-center">
 					<div class="bg-white rounded-lg text-left overflow-hidden p-4 w-4/5 shadow-neon" :class="bgclass">
 						<div class="modal__header relative">
-							<Button clear class="modal__btn__close group absolute right-0 top-0" @click="$emit('isClickShow', false)">
+							<Btn clean class="modal__btn__close group absolute right-0 top-0" @click="$emit('isClickShow', false)">
 								<i
 									class="border border-main-lighter rounded-full w-10 h-10 flex items-center justify-center relative group-hover:bg-main group-hover:text-white group-hover:shadow-neon"
 								>
 									X
 								</i>
-							</Button>
+							</Btn>
 						</div>
 						<div class="modal__body" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
 							<slot name="body" />
@@ -40,9 +40,9 @@
 </template>
 <script setup>
 import { mapActions, storeToRefs } from 'pinia'
-import { useMainStore } from '@/store/main'
-const { MODALTOGGLE } = storeToRefs(useMainStore())
-const { getModalToggle } = mapActions(useMainStore, ['getModalToggle']) // closed header
+import { useMain } from '@/store/main'
+const { modaltoggle } = storeToRefs(useMain())
+const { getModalToggle } = mapActions(useMain, ['getModalToggle']) // closed header
 
 defineEmits(['isClickShow'])
 definePageMeta({

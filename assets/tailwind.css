@@ -12,7 +12,9 @@
 	body {
 		@apply text-white;
 		@apply bg-some-dark;
+		@apply h-full;
 	}
+
 	img {
 		@apply object-cover;
 	}
@@ -79,7 +81,7 @@
 	}
 
 	.text-shadow {
-		text-shadow: 2px 3px 2px rgb(0 0 0 / 30%), 0 0 5px #e82882, 0 0 30px #945aa4;
+		text-shadow: 0 0 0 #000;
 	}
 	.text-neon {
 		@apply text-main-light;
@@ -87,9 +89,34 @@
 		text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #f7f, 0 0 0.6em #f0f, 0 0 0.8em #f0f, 0 0 1em #f0f,
 			0 0 1.2em #f0f;
 	}
-	.stretch {
+	.glue {
 		&:after {
 			@apply absolute inset-0 content-[''] z-10;
+		}
+	}
+	.nav {
+		&__menu {
+			@apply -translate-y-2;
+			@apply w-8 h-4 relative;
+			&-icon {
+				@apply absolute top-0 w-full h-1 bg-main left-0 rounded-xl transition-all;
+				@apply even:top-2/4;
+				@apply last:bottom-full;
+				@apply last:top-full;
+			}
+			&&--active {
+				& .nav__menu-icon {
+					&:first-child {
+						@apply top-3 rotate-45;
+					}
+					&:nth-child(2) {
+						@apply hidden;
+					}
+					&:last-child {
+						@apply top-3 bottom-auto -rotate-45;
+					}
+				}
+			}
 		}
 	}
 }

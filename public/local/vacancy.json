@@ -1,0 +1,32 @@
+[
+	{
+		"url": "devushkam",
+		"title": "Девушкам",
+		"text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p>",
+		"img": {
+			"big": "#",
+			"min": "#",
+			"alt": "text alt"
+		}
+	},
+	{
+		"url": "administrator",
+		"title": "Администратор",
+		"text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p>",
+		"img": {
+			"big": "#",
+			"min": "#",
+			"alt": "text alt"
+		}
+	},
+	{
+		"url": "okhrannik",
+		"title": "Водитель-охранник",
+		"text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p>",
+		"img": {
+			"big": "#",
+			"min": "#",
+			"alt": "text alt"
+		}
+	}
+]

@@ -1,5 +1,6 @@
 import { getModules } from './config/modules'
 import { getTailwind, getGoogleFonts } from './config/modules/configModules'
+import { resolve } from 'path'
 const isDev = process.env.NODE_ENV !== 'production'
 export default defineNuxtConfig({
 	telemetry: false,

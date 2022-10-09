@@ -2,7 +2,7 @@
 	<main class="staff relative overflow-hidden">
 		<section class="container wrap-full relative md:py-10 py-8">
 			<div class="col-span-4 md:col-start-2 mb-8 wrap">
-				<h1 class="col-span-full font-neon text-neon" v-text="STAFF.name" />
+				<h1 class="col-span-full font-neon text-neon" v-text="staffData.name" />
 				<div class="col-span-6">
 					<!--  SwiperEffectCreative, -->
 					<Swiper
@@ -10,7 +10,7 @@
 						:spaceBetween="10"
 						:slidesPerView="1"
 						:loop="true"
-						:effect="'flip'"
+						:effect="'fade'"
 						:navigation="false"
 						:grabCursor="true"
 						:thumbs="{ swiper: thumbsSwiper }"
@@ -22,18 +22,9 @@
 						:pagination="{
 							clickable: true,
 						}"
-						:creative-effect="{
-							prev: {
-								shadow: false,
-								translate: ['-10%', 0, -1],
-							},
-							next: {
-								translate: ['100%', 0, 0],
-							},
-						}"
 					>
 						<!-- :pagination="{ clickable: true, el: '.banner__nav', type: 'bullets' }" -->
-						<SwiperSlide v-for="(slide, id) in STAFF.slider" :key="id">
+						<SwiperSlide v-for="(slide, id) in staffData.slider" :key="id">
 							<img :src="`/img/slider/${slide}`" :alt="id" class="block w-full h-full object-cover max-h-[470px]" />
 						</SwiperSlide>
 					</Swiper>
@@ -50,7 +41,7 @@
 						:modules="modules"
 						:direction="'horizontal'"
 					>
-						<SwiperSlide v-for="(item, key) in STAFF.slider" :key="key">
+						<SwiperSlide v-for="(item, key) in staffData.slider" :key="key">
 							<img :src="`/img/slider/${item}`" :alt="key" class="w-full h-full object-cover" />
 							<!-- class="  w-full h-full object-cover" -->
 						</SwiperSlide>
@@ -87,18 +78,17 @@
 			<div class="col-span-10 md:col-start-2 wrap">
 				<div
 					class="about col-span-full md:col-span-3 border border-black rounded-lg py-2 px-3 border-neon bg-gradient-to-r from-main to-main-dark"
-					v-html="STAFF.about"
+					v-html="staffData.about"
 				/>
 				<div class="col-span-full md:col-span-3 flex flex-wrap gap-4 mt-auto">
-					<template v-for="soc in socials" :key="soc.title">
-						<Button class="gap-2 !px-4 !w-full" :link="soc.url">
+					<template v-for="soc in SOCIALS" :key="soc.title">
+						<Btn class="gap-2 !px-4 !w-full" :to="soc.url">
 							<i class="border border-white rounded-full w-10 h-10 flex items-center justify-center">
 								<img :src="`/assets/svg/${soc.icon}`" width="24" height="24" :alt="soc.title"
 							/></i>
-							{{ soc.title }}</Button
+							{{ soc.title }}</Btn
 						>
 					</template>
- 
 				</div>
 			</div>
 		</section>
@@ -107,32 +97,21 @@
 <script setup>
 import { useMq } from 'vue3-mq'
 import { storeToRefs } from 'pinia'
-import { useMainStore } from '@/store/main.js'
-const { getStaff, socials } = useMainStore()
-const { MODALTOGGLE } = storeToRefs(useMainStore())
+import { useMain } from '@/store/main.js'
+const { getStaff, SOCIALS } = useMain()
+// const { modalToggle } = storeToRefs(useMain())
 const showModal = shallowRef(null)
 const isShow = (val) => (showModal.value = val)
 const openModal = (modalRefName) => (showModal.value = modalRefName)
 // const { pending: staffWait, data: staff, error } = useLazyAsyncData('staff', () => getStaff(useRoute().params.url))
-const { data: STAFF, pending, error } = await useFetch(`http://localhost:3000/local/${useRoute().params.url}.json`)
+const { data: staffData, pending, error } = await useFetch(`http://localhost:3000/local/${useRoute().params.url}.json`)
 
 if (error.value) {
 	await navigateTo(`/`)
 	throw createError()
 }
 
-const modules = [
-	SwiperAutoplay,
-	SwiperEffectCreative,
-	SwiperFreeMode,
-	SwiperNavigation,
-	SwiperPagination,
-	SwiperMousewheel,
-	SwiperThumbs,
-	SwiperEffectFade,
-	SwiperEffectFlip,
-	SwiperEffectCards,
-]
+const modules = [SwiperAutoplay, SwiperFreeMode, SwiperNavigation, SwiperPagination, SwiperMousewheel, SwiperThumbs, SwiperEffectFade]
 const thumbsSwiper = ref(null)
 const setThumbsSwiper = (swiper) => (thumbsSwiper.value = swiper)
 
