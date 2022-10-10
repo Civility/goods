@@ -15,8 +15,9 @@
 
 			<nav class="nav md:order-none order-2 h-full">
 				<menu v-show="toggleMenu" class="absolute inset-0 flex justify-center items-center">
-					<div class="w-full flex justify-center items-center relative">
-						<Btn glue to="/vakansiya" class="!text-2xl !py-4 !w-full md:!w-1/2" @click="getMenuClosed()">Вакансии</Btn>
+					<div class="w-full flex flex-col gap-4 justify-center items-center relative">
+						<Btn to="/vakansiya" class="!text-2xl !py-4 !w-full md:!w-1/2" @click="getMenuClosed()">Вакансии</Btn>
+						<Btn to="/salony" class="!text-2xl !py-4 !w-full md:!w-1/2" @click="getMenuClosed()">Салоны</Btn>
 					</div>
 				</menu>
 				<div class="cursor-pointer w-16 h-16 flex justify-end items-center relative" @click="getMenuToggle()">

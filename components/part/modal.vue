@@ -17,8 +17,8 @@
 				leave-from-class="opacity-100"
 				leave-to-class="opacity-0"
 			>
-				<div class="flex items-center justify-center min-h-screen pt-24 text-center">
-					<div class="bg-white rounded-lg text-left overflow-hidden p-4 w-4/5 shadow-neon" :class="bgclass">
+				<div class="flex items-center justify-center pt-24 text-center">
+					<div class="modal__content w-1/2 bg-white rounded-lg text-left overflow-hidden p-4 shadow-neon" :class="bgclass">
 						<div class="modal__header relative">
 							<Btn clean class="modal__btn__close group absolute right-0 top-0" @click="$emit('isClickShow', false)">
 								<i

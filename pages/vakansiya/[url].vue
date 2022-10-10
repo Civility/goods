@@ -1,8 +1,8 @@
 <template>
 	<section
 		@mousemove="mouseWatch"
-		class="relative bg-no-repeat bg-cover bg-scroll p-5 rounded-lg"
-		:style="`background-image: url('https://picsum.photos/id/33/1280/960.webp');`"
+		class="md:py-10 py-8 mr-4 w-full relative bg-no-repeat bg-cover bg-scroll rounded-lg"
+		:style="`background-image: url('${vacancyURL.img?.big}');`"
 		v-if="vacancyURL"
 	>
 		<MouseParallax x="50" y="50" :mouseX="elX" :mouseY="elY" class="mouse-parallax__main" v-if="useMq().mdPlus" />

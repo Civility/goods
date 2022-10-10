@@ -9,7 +9,7 @@ const replaceNumber = (number) => {
 export const useMain = defineStore('main', {
 	state: () => ({
 		TOGGLEMENU: false,
-
+		ASIDEMENU: false,
 		MODALOPEN: false,
 		MODALCLOSE: true,
 		MODALTOGGLE: false,
@@ -32,6 +32,7 @@ export const useMain = defineStore('main', {
 		STAFF: {},
 	}),
 	getters: {
+		asideMenu: (s) => s.ASIDEMENU,
 		phone1: (s) => replaceNumber(s.PHONE1),
 		phone2: (s) => replaceNumber(s.PHONE2),
 		contact: (s) =>
@@ -63,6 +64,9 @@ export const useMain = defineStore('main', {
 		staff: (s) => s.STAFF,
 	},
 	actions: {
+		getAsideMenu() {
+			this.ASIDEMENU = !this.ASIDEMENU
+		},
 		async getContactData() {
 			await this.contact
 		},
