@@ -75,14 +75,14 @@
 					class="about col-span-full md:col-span-3 border border-black rounded-lg py-2 px-3 border-neon bg-gradient-to-r from-main to-main-dark"
 					v-html="staffData.about"
 				/>
-				<div class="col-span-full md:col-span-3 flex flex-wrap gap-4 mt-auto">
-					<template v-for="soc in SOCIALS" :key="soc.title">
-						<Btn class="gap-2 !px-4 !w-full" :to="soc.url">
+				<!-- <div class="col-span-full md:col-span-3 flex flex-wrap gap-4 mt-auto">
+ 
+						<Btn class="gap-2 !px-4 !w-full" :to="soc.url" v-for="soc in SOCIALS" :key="soc.title">
 							<Icon :svg="soc.icon" class="border-white" />
 							{{ soc.title }}
 						</Btn>
-					</template>
-				</div>
+	 
+				</div> -->
 			</div>
 		</section>
 	</main>

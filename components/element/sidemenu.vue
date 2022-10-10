@@ -17,14 +17,14 @@
 				<Btn sec v-for="item in data" :to="`/${link}/${item.url}`" class="!w-auto">{{ item.title }}</Btn>
 			</div>
 
-			<div class="flex flex-col gap-y-4 mt-auto">
+			<!-- <div class="flex flex-col gap-y-4 mt-auto">
 				<Btn class="gap-2 !w-auto" :to="`//t.me/${phone1}`">
 					<Icon svg="telegram" class="border-main-lighter" />
 				</Btn>
 				<Btn class="z-10 gap-2 !w-auto" :to="`//wa.me/${phone2}`">
 					<Icon svg="whatsapp" class="border-main-lighter" />
 				</Btn>
-			</div>
+			</div> -->
 		</div>
 	</aside>
 </template>
@@ -34,9 +34,10 @@ definePageMeta({
 })
 import { storeToRefs, mapActions } from 'pinia'
 import { useMain } from '@/store/main.js'
+
 const { getAsideMenu } = mapActions(useMain, ['getAsideMenu'])
-const { asideMenu } = storeToRefs(useMain())
-const { phone2, phone1 } = useMain()
+const { asideMenu, contact } = storeToRefs(useMain())
+
 defineProps({
 	data: Array,
 	link: String,

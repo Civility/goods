@@ -4,9 +4,9 @@
 		"title": "Кингисепп",
 		"address": {
 			"city": "Кингисепп",
-			"street": "ул. Парижская, д. 1",
-			"phone": "+7 (812) 333-33-41"
+			"street": "ул. Парижская, д. 1"
 		},
+		"phone": "+7 (812) 333-33-41",
 		"text": "<p>Text Text Text Text Text Text</p>",
 		"description": "<p>Description description description description</p>",
 		"price": {
@@ -34,9 +34,9 @@
 		"title": "Всеволожск",
 		"address": {
 			"city": "Всеволожск",
-			"street": "ул. Венгерская, д. 15",
-			"phone": "+7 (812) 333-33-42"
+			"street": "ул. Венгерская, д. 15"
 		},
+		"phone": "+7 (812) 333-33-42",
 		"text": "<p>Text Text Text Text Text Text 2</p>",
 		"description": "<p>Description description description description</p>",
 		"price": {
@@ -44,7 +44,7 @@
 			"max": 6000
 		},
 		"socials": {
-			"telegramm": "#"
+			"url": "#"
 		},
 		"img": {
 			"big": "https://picsum.photos/id/114/1280/960.webp",

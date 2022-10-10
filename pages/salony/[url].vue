@@ -10,7 +10,7 @@
 				:effect="'fade'"
 				:fadeEffect="{ crossFade: true }"
 				:autoplay="{
-					delay: 5000,
+					delay: 3500,
 					disableOnInteraction: true,
 				}"
 				:navigation="{
@@ -31,14 +31,20 @@
 				</template>
 			</Slider>
 		</div>
-		<div class="info">
+		<div class="col-span-4 border border-main rounded-md p-4">
 			<div v-html="salonyURL.text" />
 			<div v-html="salonyURL.description" />
-			<div class="price">
-				<div v-text="salonyURL.price.min" />
-				<div v-text="salonyURL.price.max" />
-			</div>
-			<div class="social"><div v-text="salonyURL.url" /></div>
+		</div>
+		<div class="col-span-2 border border-main rounded-md p-4">
+			<p>Цена1: <span v-text="salonyURL.price.min" /></p>
+
+			<p>Цена2: <span v-text="salonyURL.price.max" /></p>
+		</div>
+		<div class="col-span-full border border-main shadow-neon rounded-md p-4">
+			<p v-text="`Сейчас онлайн`" />
+			<Btn sec class="gap-2 !px-4 !w-full" :to="salonyURL.url">
+				<Icon svg="telegram" class="border-white" />
+			</Btn>
 		</div>
 	</section>
 </template>

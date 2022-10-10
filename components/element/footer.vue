@@ -2,16 +2,14 @@
 	<footer class="footer box-decoration-slice bg-gradient-to-b from-sec-darker to-some-dark py-8 mt-auto">
 		<div class="container wrap">
 			<span class="md:col-span-3 col-span-full flex flex-col gap-4">
-				<Btn sec :to="`tel:${phone1}`" class="gap-2 !w-full mb-4">
-					<Icon svg="call" class="border-white" />
-
-					Телефон</Btn
-				>
-				<div class="flex flex-wrap md:flex-nowrap gap-4">
+				<!-- <Btn sec :to="`tel:${phone1}`" class="gap-2 !w-full mb-4"> <Icon svg="call" class="border-white" />Телефон</Btn> -->
+				<div class="flex flex-wrap lg:flex-nowrap gap-4">
 					<dl v-for="(point, index) in contact" :key="index">
 						<dt class="text-2xl mb-1">Адрес: {{ index + 1 }}</dt>
-						<dd class="text-xl py-3 rounded-lg flex items-center gap-2">
-							<Icon svg="call" class="border-white" />
+						<dd class="text-xl py-3 rounded-lg flex items-center gap-2 whitespace-nowrap">
+							<Btn clean class="gap-2 !w-auto" :to="`//t.me/${point.number}`">
+								<Icon svg="call" class="border-white" />
+							</Btn>
 							{{ point.address.city }}
 							<br />
 							{{ point.address.street }}
@@ -31,14 +29,12 @@
 						<!-- <template #footer>footer</template> -->
 					</Modal>
 				</div>
-				<div class="flex gap-4 mt-auto">
-					<template v-for="soc in SOCIALS" :key="soc.title">
-						<Btn sec class="gap-2 !px-4 !w-full" :to="soc.url">
-							<Icon :svg="soc.icon" class="border-white" />
-							{{ soc.title }}
-						</Btn>
-					</template>
-				</div>
+				<!-- <div class="flex gap-4 mt-auto">
+					<Btn sec class="gap-2 !px-4 !w-full" :to="soc.url" v-for="soc in SOCIALS" :key="soc.title">
+						<Icon :svg="soc.icon" class="border-white" />
+						{{ soc.title }}
+					</Btn>
+				</div> -->
 			</span>
 			<div class="col-span-full flex gap-4 mt-auto text-xs text-white/70">
 				<span class="max-w-max">{{ COPYRIGHT.low }}</span>
@@ -52,7 +48,7 @@
 import { storeToRefs, mapActions } from 'pinia'
 import { useMain } from '@/store/main.js'
 const { contact } = storeToRefs(useMain())
-const { COPYRIGHT, SOCIALS, phone1 } = useMain()
+const { COPYRIGHT, SOCIALS } = useMain()
 
 const showModal = shallowRef(null)
 const isShow = (val) => (showModal.value = val)

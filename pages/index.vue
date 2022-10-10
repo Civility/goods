@@ -19,12 +19,12 @@
 							debitis libero, esse veritatis porro? Quaerat sapiente eligendi minus quasi, eveniet reiciendis adipisci?
 						</p>
 					</div>
-					<Btn class="shadow-neon gap-2 md:!w-80 !w-full" :to="`//t.me/${phone1}`">
+					<!-- <Btn class="shadow-neon gap-2 md:!w-80 !w-full" :to="`//t.me/${phone1}`">
 						<Icon svg="telegram" class="border-main-lighter" />
 					</Btn>
 					<Btn class="shadow-neon z-10 gap-2 md:!w-80 !w-full" :to="`//wa.me/${phone2}`">
 						<Icon svg="whatsapp" class="border-main-lighter" />
-					</Btn>
+					</Btn> -->
 				</div>
 			</div>
 		</section>
@@ -47,10 +47,10 @@
 </template>
 <script setup>
 import { useMq } from 'vue3-mq'
-import { storeToRefs, mapActions } from 'pinia'
+import { storeToRefs } from 'pinia'
 import { useMain } from '@/store/main.js'
 
-const { getGoods, phone1, phone2 } = useMain()
+const { getGoods } = useMain()
 const { goods, goodsLength } = storeToRefs(useMain())
 const { pending: goodsWait, data: goodsData } = await useLazyAsyncData('goods', () => getGoods())
 

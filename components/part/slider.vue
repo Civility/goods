@@ -1,5 +1,5 @@
 <template>
-	<Swiper :modules="modules" :speed="1000">
+	<Swiper :modules="modules" :speed="700">
 		<SwiperSlide v-for="(slider, id) of data" :key="id">
 			<slot name="content" :slider="slider" />
 		</SwiperSlide>

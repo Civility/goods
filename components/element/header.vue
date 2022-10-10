@@ -32,12 +32,14 @@
 <script setup>
 import { storeToRefs, mapActions } from 'pinia'
 import { useMain } from '@/store/main.js'
-
+import { useSalony } from '@/store/salony.js'
+const { getSalony } = useSalony()
+const { pending: salonyWait, data: salonyData } = await useLazyAsyncData('salony', () => getSalony())
 const { getMenuToggle } = mapActions(useMain, ['getMenuToggle'])
 const { getMenuClosed } = mapActions(useMain, ['getMenuClosed'])
 const { getContactData } = mapActions(useMain, ['getContactData'])
-const { toggleMenu, contact } = storeToRefs(useMain())
-// const {  PHONE2, PHONE1 } = useMain()
+
+const { toggleMenu, contact, salons } = storeToRefs(useMain())
 </script>
 <style scoped lang="postcss">
 .header {
