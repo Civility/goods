@@ -1,14 +1,10 @@
 <template>
 	<aside
-		class="aside-menu z-20 flex flex-col gap-y-4 py-8 from-some-dark/70 to-sec-darker/90 md:py-10 shadow-lg"
+		class="aside-menu z-20 flex flex-col gap-y-4 from-some-dark/70 to-sec-darker/90 shadow-lg md:py-10 py-8"
 		:class="{ 'bg-gradient-to-b  md:min-w-[15rem] md:w-60 ': asideMenu }"
 	>
-		<i
-			class="p-4 cursor-pointer relative self-end bg-some-dark/80 rounded-lg"
-			:class="{ '!bg-transparent': asideMenu }"
-			@click="getAsideMenu()"
-		>
-			<button class="nav__menu glue" :class="{ 'nav__menu--active': asideMenu }">
+		<i class="p-4 cursor-pointer self-end bg-some-dark/80 rounded-lg h-max sticky top-[20%]" @click="getAsideMenu()">
+			<button class="nav__menu glue group" :class="{ 'nav__menu--active': asideMenu }">
 				<span :class="'nav__menu-icon'" v-for="i in 3" />
 			</button>
 		</i>

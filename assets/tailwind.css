@@ -99,7 +99,7 @@
 			@apply -translate-y-2;
 			@apply w-8 h-4 relative;
 			&-icon {
-				@apply absolute top-0 w-full h-1 bg-main left-0 rounded-xl transition-all;
+				@apply absolute top-0 w-full h-1 bg-main group-hover:bg-main/80 left-0 rounded-xl transition-all;
 				@apply even:top-2/4;
 				@apply last:bottom-full;
 				@apply last:top-full;

@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-wrap gap-4 items-center z-20">
+	<div class="flex flex-wrap gap-4 items-center mr-4 z-10 md:py-10 py-8">
 		<Btn v-for="item in list" class="col-span-2 !relative bg-dark/70 !w-full" :to="`/salony/${item.url}`">
 			<img :src="item.img?.bg" :alt="item.img?.alt" v-if="item.img?.bg" class="max-h-40 w-full" />
 			<div

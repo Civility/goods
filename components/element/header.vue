@@ -18,10 +18,11 @@
 					<div class="w-full flex flex-col gap-4 justify-center items-center relative">
 						<Btn to="/vakansiya" class="!text-2xl !py-4 !w-full md:!w-1/2" @click="getMenuClosed()">Вакансии</Btn>
 						<Btn to="/salony" class="!text-2xl !py-4 !w-full md:!w-1/2" @click="getMenuClosed()">Салоны</Btn>
+						<Btn to="/uslugi" class="!text-2xl !py-4 !w-full md:!w-1/2" @click="getMenuClosed()">Услуги</Btn>
 					</div>
 				</menu>
 				<div class="cursor-pointer w-16 h-16 flex justify-end items-center relative" @click="getMenuToggle()">
-					<button class="nav__menu glue" :class="{ 'nav__menu--active': toggleMenu }">
+					<button class="nav__menu glue group" :class="{ 'nav__menu--active': toggleMenu }">
 						<span :class="'nav__menu-icon'" v-for="i in 3" />
 					</button>
 				</div>

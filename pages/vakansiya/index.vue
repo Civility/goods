@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-wrap gap-4 items-center z-20">
+	<div class="flex flex-wrap gap-4 items-center z-10 mr-4 md:py-10 py-8">
 		<Btn v-for="item in data" class="col-span-2 !relative bg-dark/70 !w-full" :to="`/vakansiya/${item.url}`">
 			<img :src="item.img?.bg" :alt="item.img?.alt" v-if="item.img?.bg" class="max-h-40 w-full" />
 			<div

@@ -5,7 +5,7 @@
 	</main>
 </template>
 <script setup>
-import { storeToRefs, mapActions } from 'pinia'
+import { storeToRefs } from 'pinia'
 import { useVacancy } from '@/store/vacancy.js'
 const { getVacancy } = useVacancy()
 const { vacancy } = storeToRefs(useVacancy())

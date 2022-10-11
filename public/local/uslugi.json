@@ -1,0 +1,35 @@
+[
+	{
+		"url": "taxi",
+		"title": "Такси",
+		"text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p>",
+		"img": {
+			"big": "https://picsum.photos/id/222/1280/960.webp",
+			"mini": "https://picsum.photos/id/222/300/250.webp",
+			"bg": "https://picsum.photos/id/223/800/200.webp",
+			"alt": "text alt"
+		}
+	},
+	{
+		"url": "skayti",
+		"title": "Скауты",
+		"text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p>",
+		"img": {
+			"big": "https://picsum.photos/id/211/1280/960.webp",
+			"mini": "https://picsum.photos/id/211/300/250.webp",
+			"bg": "https://picsum.photos/id/220/800/200.webp",
+			"alt": "text alt"
+		}
+	},
+	{
+		"url": "indi",
+		"title": "Инди",
+		"text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p>",
+		"img": {
+			"big": "https://picsum.photos/id/227/1280/960.webp",
+			"mini": "https://picsum.photos/id/227/300/250.webp",
+			"bg": "https://picsum.photos/id/228/800/200.webp",
+			"alt": "text alt"
+		}
+	}
+]
