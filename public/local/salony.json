@@ -1,62 +1,55 @@
 [
 	{
-		"url": "kingisepp",
-		"title": "Кингисепп",
-		"address": {
-			"city": "Кингисепп",
-			"street": "ул. Парижская, д. 1"
-		},
-		"phone": "+7 (812) 333-33-41",
-		"text": "<p>Text Text Text Text Text Text</p>",
-		"description": "<p>Description description description description</p>",
-		"price": {
-			"min": 3000,
-			"max": 5000
-		},
-		"socials": {
-			"url": "#"
-		},
-		"img": {
-			"big": "https://picsum.photos/id/111/1280/960.webp",
-			"mini": "https://picsum.photos/id/112/300/250.webp",
-			"bg": "https://picsum.photos/id/113/800/200.webp",
-			"alt": "text alt"
-		},
+		"url": "pulkovo",
+		"phone": "+79500307834",
+		"text": "",
+		"description": "",
+		"img_bg": "/1664840342427329017.jpg",
+		"socials": [
+			{
+				"title": "telegram",
+				"url": "socials$"
+			}
+		],
 		"slider": [
-			"https://picsum.photos/id/77/1280/420.webp",
-			"https://picsum.photos/id/74/1280/420.webp",
-			"https://picsum.photos/id/75/1280/420.webp",
-			"https://picsum.photos/id/76/1280/420.webp"
-		]
+			"/1664840342427329017.jpg",
+			"/1664840342427329017.jpg"
+		],
+		"title": "ул. Пирогова",
+		"address": {
+			"city": "Пулково",
+			"street": "ул. Пирогова"
+		},
+		"price": {
+			"min": 2,
+			"max": 2
+		}
 	},
 	{
-		"url": "vsevolozhsk",
-		"title": "Всеволожск",
-		"address": {
-			"city": "Всеволожск",
-			"street": "ул. Венгерская, д. 15"
-		},
-		"phone": "+7 (812) 333-33-42",
-		"text": "<p>Text Text Text Text Text Text 2</p>",
-		"description": "<p>Description description description description</p>",
-		"price": {
-			"min": 2000,
-			"max": 6000
-		},
-		"socials": {
-			"url": "#"
-		},
-		"img": {
-			"big": "https://picsum.photos/id/114/1280/960.webp",
-			"mini": "https://picsum.photos/id/115/300/250.webp",
-			"bg": "https://picsum.photos/id/116/800/200.webp",
-			"alt": "text alt"
-		},
+		"url": "salony2",
+		"phone": "+79500307834",
+		"text": "<p>text text text text </p>",
+		"description": "",
+		"img_bg": "/1664840342427329017.jpg",
+		"socials": [
+			{
+				"title": "telegram",
+				"url": "#socials"
+			}
+		],
 		"slider": [
-			"https://picsum.photos/id/81/1280/420.webp",
-			"https://picsum.photos/id/78/1280/420.webp",
-			"https://picsum.photos/id/79/1280/420.webp",
-			"https://picsum.photos/id/80/1280/420.webp"
-		]
+			"/166484034232217278.jpg",
+			"/1664840342427329017.jpg",
+			"/166484034232217278.jpg"
+		],
+		"title": "ул. Цветочная",
+		"address": {
+			"city": "Salony2",
+			"street": "ул. Цветочная"
+		},
+		"price": {
+			"min": 234,
+			"max": 234
+		}
 	}
 ]

@@ -26,7 +26,7 @@ const isClass = computed(() => {
 </script>
 <style lang="postcss" scoped>
 .btn {
-	@apply inline-flex items-center justify-center;
+	@apply inline-flex items-center justify-center gap-x-2;
 	@apply py-2 px-2;
 	@apply rounded-lg;
 	@apply md:w-64 w-auto;

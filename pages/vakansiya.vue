@@ -11,5 +11,5 @@ const { getVacancy } = useVacancy()
 const { vacancy } = storeToRefs(useVacancy())
 
 const { pending: vacancyWait, data: vacancyData } = await useLazyAsyncData('vacancy', () => getVacancy())
-const isAsideList = computed(() => vacancy.value.map(({ url, title, img }) => ({ url, title, img })))
+const isAsideList = computed(() => vacancy.value.map(({ url, title, img_bg }) => ({ url, title, img_bg })))
 </script>

@@ -1,0 +1,36 @@
+{
+	"name": "Item1",
+	"options": {
+		"age": 19,
+		"size": 3,
+		"tall": 110
+	},
+	"text": "",
+	"slider": [
+		"/166484034232217278.jpg"
+	],
+	"meta_title": "",
+	"meta_desc": "",
+	"uslugi": [
+		"Services",
+		"Services1"
+	],
+	"img": {
+		"big": "/1664840342427329017.jpg",
+		"mini": "/166484034232217278.jpg"
+	},
+	"price": {
+		"min": 3,
+		"max": 6
+	},
+	"salony": [
+		{
+			"city": "Пулково",
+			"street": "ул. Цветочная, д. 7, лит. Б"
+		},
+		{
+			"city": "Salony2",
+			"street": "ул. Цветочная, д. 8, лит. A"
+		}
+	]
+}

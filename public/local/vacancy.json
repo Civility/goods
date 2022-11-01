@@ -1,35 +1,24 @@
 [
 	{
-		"url": "devushkam",
-		"title": "Девушкам",
-		"text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p>",
+		"url": "ertert",
+		"title": "ertert",
+		"text": "<p>text text text text</p>",
+		"img_bg": "/166484034232217278.jpg",
 		"img": {
-			"big": "https://picsum.photos/id/34/1280/960.webp",
-			"mini": "https://picsum.photos/id/34/300/250.webp",
-			"bg": "https://picsum.photos/id/44/800/200.webp",
-			"alt": "text alt"
+			"mini": "/1664840342427329017.jpg",
+			"big": "/1664840342427329017.jpg",
+			"alt": "img_alt"
 		}
 	},
 	{
-		"url": "adminiistrator",
-		"title": "Администратор",
-		"text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p>",
+		"url": "vacancy2",
+		"title": "Vacancy2",
+		"text": "<p>text text text </p>",
+		"img_bg": "/1664840342427329017.jpg",
 		"img": {
-			"big": "https://picsum.photos/id/35/1280/960.webp",
-			"mini": "https://picsum.photos/id/35/300/250.webp",
-			"bg": "https://picsum.photos/id/45/800/200.webp",
-			"alt": "text alt"
-		}
-	},
-	{
-		"url": "okhrannik",
-		"title": "Водитель-охранник",
-		"text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p>",
-		"img": {
-			"big": "https://picsum.photos/id/36/1280/960.webp",
-			"mini": "https://picsum.photos/id/36/300/250.webp",
-			"bg": "https://picsum.photos/id/46/800/200.webp",
-			"alt": "text alt"
+			"mini": "/1664840342427329017.jpg",
+			"big": "/166484034232217278.jpg",
+			"alt": "vacancy2"
 		}
 	}
 ]

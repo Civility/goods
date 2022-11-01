@@ -3,6 +3,8 @@
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",
+    "start_npx": "npx nuxi start",
+    "start": "env NITRO_HOST=127.0.0.1 node .output/server/index.mjs",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -15,6 +17,7 @@
     "@nuxtjs/tailwindcss": "latest",
     "@pinia/nuxt": "latest",
     "@tailwindcss/nesting": "latest",
+    "nuxt-icon": "^0.1.7",
     "nuxt-swiper": "^0.1.5",
     "pinia": "latest",
     "vue3-mq": "latest"

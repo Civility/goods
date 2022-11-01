@@ -11,5 +11,5 @@ const { getUslugi } = useUslugi()
 const { uslugi } = storeToRefs(useUslugi())
 
 const { pending: uslugiWait, data: uslugiData } = await useLazyAsyncData('uslugi', () => getUslugi())
-const isAsideList = computed(() => uslugi.value.map(({ url, title, img }) => ({ url, title, img })))
+const isAsideList = computed(() => uslugi.value.map(({ url, title, img_bg }) => ({ url, title, img_bg })))
 </script>

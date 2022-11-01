@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
-const localAPI = 'http://localhost:3000/'
+// const isDev = process.env.NODE_ENV !== 'production'
+// const isAPI = process.env.PUBLIC_NAME + '/api/'
 export const useVacancy = defineStore('vacancy', {
 	state: () => ({
 		VACANCY: [],
@@ -13,7 +14,11 @@ export const useVacancy = defineStore('vacancy', {
 	actions: {
 		async getVacancy() {
 			try {
-				this.VACANCY = await $fetch(`${localAPI}local/vacancy.json`)
+				this.VACANCY = await $fetch(`${process.env.PUBLIC_NAME}/api/vacancy`, {
+					headers: {
+						'Access-Control-Allow-Origin': '*',
+					},
+				})
 			} catch (err) {
 				console.log(err)
 				await navigateTo(`/`)

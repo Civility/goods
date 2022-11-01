@@ -23,7 +23,11 @@
 						}"
 					>
 						<template #content="{ slider }">
-							<img :src="`/img/slider/${slider}`" :alt="slider" class="block w-full h-full object-cover max-h-[470px]" />
+							<img
+								:src="`${config.public.G_IMG}${slider}`"
+								:alt="slider"
+								class="block w-full h-full object-cover max-h-[470px]"
+							/>
 						</template>
 					</Slider>
 					<Slider
@@ -39,46 +43,52 @@
 						:direction="'horizontal'"
 					>
 						<template #content="{ slider }">
-							<img :src="`/img/slider/${slider}`" :alt="slider" class="w-full h-full object-cover" />
+							<img :src="`${config.public.G_IMG}${slider}`" :alt="slider" class="w-full h-full object-cover" />
 						</template>
 					</Slider>
 				</div>
 			</div>
 			<div class="col-span-5 md:col-start-7 wrap mb-8 place-content-start">
-				<h3 class="text-4xl lg:text-5xl leading-tight uppercase font-neon col-span-full" v-text="staffData.address" />
+				<!-- <h3 class="text-4xl lg:text-5xl leading-tight uppercase font-neon col-span-full" v-text="staffData.address" /> -->
+				<dl v-for="salony in staffData.salony" class="col-span-full">
+					<dt v-text="salony.city" class="uppercase font-neon" />
+					<dd v-text="salony.street" />
+				</dl>
 				<div class="divide-y-4 divide-double divide-sec-darker col-span-full">
 					<h4 class="font-neon">Параметры</h4>
 					<dl class="wrap gap-y-3 gap-x-4 mb-8 py-4">
-						<dt class="col-span-2">Age</dt>
-						<dd class="col-span-4" v-text="staffData.options.age" />
-						<dt class="col-span-2">Size</dt>
-						<dd class="col-span-4" v-text="staffData.options.size" />
-						<dt class="col-span-2">Tall</dt>
-						<dd class="col-span-4" v-text="staffData.options.tall" />
+						<dt class="col-span-2">Возраст</dt>
+						<dd class="col-span-4 col-start-3" v-text="staffData.options.age" />
+						<dt class="col-span-2">Размер</dt>
+						<dd class="col-span-4 col-start-3" v-text="staffData.options.size" />
+						<dt class="col-span-2">Рост</dt>
+						<dd class="col-span-4 col-start-3" v-text="staffData.options.tall" />
 					</dl>
 					<dl class="wrap gap-y-3 gap-x-4 mb-8 py-4">
-						<dt :class="`col-span-2 row-span-${staffData.options.services.length}`">Services</dt>
-						<dd class="col-span-4" v-for="(service, idx) in staffData.options.services" :key="idx">
-							{{ service }}
+						<dt class="col-span-2">Услуги</dt>
+						<dd class="col-span-4 col-start-3" v-for="(uslugi, idx) in staffData.uslugi" :key="idx">
+							{{ uslugi }}
 						</dd>
 					</dl>
-					<dl class="wrap gap-y-3 gap-x-4 mb-8 py-4">
+					<dl class="wrap gap-y-3 gap-x-4 mb-8 py-4" v-if="staffData.price?.min">
 						<dt class="col-span-2">Price min</dt>
-						<dd class="col-span-4" v-text="`${staffData.price.min} час`" />
+						<dd class="col-span-4 col-start-3" v-text="`${staffData.price?.min} час`" />
+					</dl>
+					<dl class="wrap gap-y-3 gap-x-4 mb-8 py-4" v-if="staffData.price?.max">
 						<dt class="col-span-2">Price max</dt>
-						<dd class="col-span-4" v-text="`${staffData.price.max} час`" />
+						<dd class="col-span-4 col-start-3" v-text="`${staffData.price?.max} час`" />
 					</dl>
 				</div>
 			</div>
-			<div class="col-span-10 md:col-start-2 wrap">
+			<div class="col-span-10 md:col-start-2 wrap" v-if="staffData.text">
 				<div
 					class="about col-span-full md:col-span-3 border border-black rounded-lg py-2 px-3 border-neon bg-gradient-to-r from-main to-main-dark"
-					v-html="staffData.about"
+					v-html="staffData?.text"
 				/>
 				<!-- <div class="col-span-full md:col-span-3 flex flex-wrap gap-4 mt-auto">
  
 						<Btn class="gap-2 !px-4 !w-full" :to="soc.url" v-for="soc in SOCIALS" :key="soc.title">
-							<Icon :svg="soc.icon" class="border-white" />
+							<Svg :svg="soc.icon" class="border-white" />
 							{{ soc.title }}
 						</Btn>
 	 
@@ -91,17 +101,29 @@
 import { useMq } from 'vue3-mq'
 import { storeToRefs } from 'pinia'
 import { useMain } from '@/store/main.js'
+const config = useRuntimeConfig()
 const { getStaff, SOCIALS } = useMain()
 // const { modalToggle } = storeToRefs(useMain())
 const showModal = shallowRef(null)
 const isShow = (val) => (showModal.value = val)
 const openModal = (modalRefName) => (showModal.value = modalRefName)
+
 // const { pending: staffWait, data: staff, error } = useLazyAsyncData('staff', () => getStaff(useRoute().params.url))
-const { data: staffData, pending, error } = await useFetch(`http://localhost:3000/local/${useRoute().params.url}.json`)
+const { data: staffData, pending, error } = await useFetch(
+	`${config.public.PUBLIC_NAME}/api/goods/${useRoute().params.url}`
+	// , {
+	// mode: 'no-cors',
+	// headers: {
+	// 	'Content-Type': 'application/json',
+	// 	'Access-Control-Allow-Credentials': 'true',
+	// 'Access-Control-Allow-Origin': '*',
+	// },
+	// }
+)
 
 if (error.value) {
 	await navigateTo(`/`)
-	throw createError()
+	// throw createError()
 }
 const thumbsSwiper = ref(null)
 const setThumbsSwiper = (swiper) => (thumbsSwiper.value = swiper)

@@ -20,10 +20,10 @@
 						</p>
 					</div>
 					<!-- <Btn class="shadow-neon gap-2 md:!w-80 !w-full" :to="`//t.me/${phone1}`">
-						<Icon svg="telegram" class="border-main-lighter" />
+						<Svg svg="telegram" class="border-main-lighter" />
 					</Btn>
 					<Btn class="shadow-neon z-10 gap-2 md:!w-80 !w-full" :to="`//wa.me/${phone2}`">
-						<Icon svg="whatsapp" class="border-main-lighter" />
+						<Svg svg="whatsapp" class="border-main-lighter" />
 					</Btn> -->
 				</div>
 			</div>
@@ -39,6 +39,7 @@
 			</div>
 			<div class="col-span-full">
 				<Btn @click="addShow()" class="!w-full !py-4">
+					<Svg svg="ic:round-arrow-back-ios-new" :class="size >= total ? 'rotate-90' : '-rotate-90'" />
 					{{ textShow }}
 				</Btn>
 			</div>

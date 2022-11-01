@@ -1,35 +1,22 @@
 [
 	{
-		"url": "taxi",
-		"title": "Такси",
-		"text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p>",
-		"img": {
-			"big": "https://picsum.photos/id/222/1280/960.webp",
-			"mini": "https://picsum.photos/id/222/300/250.webp",
-			"bg": "https://picsum.photos/id/223/800/200.webp",
-			"alt": "text alt"
-		}
+		"url": "uslugi1",
+		"title": "Uslugi1",
+		"text": "<p>text text text text </p>",
+		"slider": [
+			"/1664840342427329017.jpg",
+			"/166484034232217278.jpg"
+		],
+		"img_bg": "/166484034232217278.jpg"
 	},
 	{
-		"url": "skayti",
-		"title": "Скауты",
-		"text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p>",
-		"img": {
-			"big": "https://picsum.photos/id/211/1280/960.webp",
-			"mini": "https://picsum.photos/id/211/300/250.webp",
-			"bg": "https://picsum.photos/id/220/800/200.webp",
-			"alt": "text alt"
-		}
-	},
-	{
-		"url": "indi",
-		"title": "Инди",
-		"text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eveniet dolor ex iste at consequatur impedit dolorem voluptatem natus numquam, dolores ratione, rem quaerat quos cupiditate officia, aliquam ad asperiores.</p>",
-		"img": {
-			"big": "https://picsum.photos/id/227/1280/960.webp",
-			"mini": "https://picsum.photos/id/227/300/250.webp",
-			"bg": "https://picsum.photos/id/228/800/200.webp",
-			"alt": "text alt"
-		}
+		"url": "uslugi2",
+		"title": "Uslugi2",
+		"text": "<p>text text text </p>",
+		"slider": [
+			"/cropped-images/166484034232217278-0-24-270-315-1667117382.jpg",
+			"/cropped-images/166484034232217278-146-35-400-400-1667117290.jpg"
+		],
+		"img_bg": "/cropped-images/166484034232217278-0-0-0-0-1667117261.jpg"
 	}
 ]

@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia'
-const localAPI = 'http://localhost:3000/'
+// const isDev = process.env.NODE_ENV !== 'production'
+
+// const isAPI = process.env.PUBLIC_NAME + '/api/'
 export const useSalony = defineStore('salony', {
 	state: () => ({
 		SALONY: [],
@@ -13,7 +15,11 @@ export const useSalony = defineStore('salony', {
 		async getSalony() {
 			if (!this.SALONY.length) {
 				try {
-					this.SALONY = await $fetch(`${localAPI}local/salony.json`)
+					this.SALONY = await $fetch(`${process.env.PUBLIC_NAME}/api/salony`, {
+						headers: {
+							'Access-Control-Allow-Origin': '*',
+						},
+					})
 				} catch (err) {
 					console.log(err)
 				}

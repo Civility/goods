@@ -1,194 +1,26 @@
 [
 	{
-		"url": "card1",
-		"order": 0,
-		"name": "Name1",
-		"address": "address №1",
+		"url": "item",
+		"name": "Item",
 		"img": {
-			"mini": "/mini.webp",
-			"alt": "alt img"
+			"big": "/1664840342427329017.jpg",
+			"mini": "/166484034232217278.jpg"
 		},
-		"value": {
-			"age": "25",
-			"size": "3",
-			"tall": "170"
-		},
-		"services": [
-			"all",
-			"services1",
-			"services2",
-			"services3"
-		],
 		"price": {
-			"min": "3000",
-			"max": "6000"
+			"min": 3,
+			"max": 6
 		}
 	},
 	{
-		"url": "card2",
-		"order": 2,
-		"name": "Name2",
-		"address": "address №2",
+		"url": "item2",
+		"name": "Item2",
 		"img": {
-			"mini": "/mini.webp",
-			"alt": "alt img"
+			"big": "/1664840342427329017.jpg",
+			"mini": "/166484034232217278.jpg"
 		},
-		"value": {
-			"age": "22",
-			"size": "2",
-			"tall": "168"
-		},
-		"services": [
-			"all",
-			"services1"
-		],
 		"price": {
-			"min": "2555",
-			"max": "5555"
-		}
-	},
-	{
-		"url": "card2",
-		"order": 3,
-		"name": "Name3",
-		"address": "address №1",
-		"img": {
-			"mini": "/mini.webp",
-			"alt": "alt img"
-		},
-		"value": {
-			"age": "25",
-			"size": "3",
-			"tall": "170"
-		},
-		"services": [
-			"all",
-			"services1",
-			"services2",
-			"services3"
-		],
-		"price": {
-			"min": "3000",
-			"max": "6000"
-		}
-	},
-	{
-		"url": "card2",
-		"order": 4,
-		"name": "Name4",
-		"address": "address №2",
-		"img": {
-			"mini": "/mini.webp",
-			"alt": "alt img"
-		},
-		"value": {
-			"age": "22",
-			"size": "2",
-			"tall": "168"
-		},
-		"services": [
-			"all",
-			"services1"
-		],
-		"price": {
-			"min": "2555",
-			"max": "5555"
-		}
-	},
-	{
-		"url": "card1",
-		"order": 4,
-		"name": "Name1",
-		"address": "address №1",
-		"img": {
-			"mini": "/mini.webp",
-			"alt": "alt img"
-		},
-		"value": {
-			"age": "25",
-			"size": "3",
-			"tall": "170"
-		},
-		"services": [
-			"all",
-			"services1",
-			"services2",
-			"services3"
-		],
-		"price": {
-			"min": "3000",
-			"max": "6000"
-		}
-	},
-	{
-		"url": "card2",
-		"order": 2,
-		"name": "Name2",
-		"address": "address №2",
-		"img": {
-			"mini": "/mini.webp",
-			"alt": "alt img"
-		},
-		"value": {
-			"age": "22",
-			"size": "2",
-			"tall": "168"
-		},
-		"services": [
-			"all",
-			"services1"
-		],
-		"price": {
-			"min": "2555",
-			"max": "5555"
-		}
-	},
-	{
-		"url": "card1",
-		"order": 3,
-		"name": "Name1",
-		"address": "address №1",
-		"img": {
-			"mini": "/mini.webp",
-			"alt": "alt img"
-		},
-		"value": {
-			"age": "25",
-			"size": "3",
-			"tall": "170"
-		},
-		"services": [
-			"all",
-			"services1",
-			"services2",
-			"services3"
-		],
-		"price": {
-			"min": "3000",
-			"max": "6000"
-		}
-	},
-	{
-		"url": "card2",
-		"order": 4,
-		"name": "Name2",
-		"address": "address №2",
-		"img": {
-			"mini": "/mini.webp",
-			"alt": "alt img"
-		},
-		"value": {
-			"age": "22",
-			"size": "2",
-			"tall": "168"
-		},
-		"services": [
-			"all",
-			"services1"
-		],
-		"price": {
-			"min": "2555",
-			"max": "5555"
+			"min": 333,
+			"max": 5555
 		}
 	}
 ]

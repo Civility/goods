@@ -1,8 +1,14 @@
 import { getModules } from './config/modules'
 import { getTailwind, getGoogleFonts } from './config/modules/configModules'
-import { resolve } from 'path'
+//
 const isDev = process.env.NODE_ENV !== 'production'
 export default defineNuxtConfig({
+	runtimeConfig: {
+		public: {
+			G_IMG: `${process.env.PUBLIC_NAME}/storage/app/media/`,
+			PUBLIC_NAME: `${process.env.PUBLIC_NAME}`,
+		},
+	},
 	telemetry: false,
 	meta: {
 		title: 'Goods',

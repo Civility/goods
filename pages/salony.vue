@@ -1,6 +1,6 @@
 <template>
 	<main class="salony flex md:flex-row flex-col container !pr-0">
-		<NuxtPage :list="isAsideList" />
+		<NuxtPage :data="isAsideList" />
 		<Sidemenu :data="isAsideList" link="salony" />
 	</main>
 </template>
@@ -11,5 +11,5 @@ const { getSalony } = useSalony()
 const { salony } = storeToRefs(useSalony())
 
 const { pending: salonyWait, data: salonyData } = await useLazyAsyncData('salony', () => getSalony())
-const isAsideList = computed(() => salony.value.map(({ url, title, img }) => ({ url, title, img })))
+const isAsideList = computed(() => salony.value.map(({ url, title, img_bg }) => ({ url, title, img_bg })))
 </script>

@@ -4,12 +4,24 @@
 			<NuxtLink to="/" @click="getMenuClosed()" class="md:order-none order-1 z-10">
 				<img src="/assets/svg/logo.svg" height="48" width="48" alt="logo" />
 			</NuxtLink>
+			<!-- <div class="flex gap-4 mt-auto">
+					<Btn sec class="gap-2 !px-4 !w-full" :to="soc.url" v-for="soc in SOCIALS" :key="soc.title">
+						<Svg :svg="soc.icon" class="border-white" />
+						{{ soc.title }}
+					</Btn>
+				</div> -->
 			<!-- <span class="text-neon font-neon xxl:text-xxl md:text-lg text-center">Круглосуточно 24/7</span> -->
+
 			<div class="header__address flex gap-4 flex-wrap md:w-auto w-full justify-center md:order-none order-3">
-				<Btn clean v-for="item in contact" :to="`tel:${item.number}`" class="!grid grid-cols-[40px,_1fr] gap-x-2">
-					<Icon svg="call" class="border-white row-span-2" />
+				<Btn clean v-for="item in contact" :to="`tel:${item.number}`" class="!grid grid-cols-[40px,_1fr]">
+					<Svg svg="ic:baseline-call" class="border-white row-span-2" />
 					<div class="text-sec-lighter" v-text="item.phone" />
 					<span class="text-main-lighter" v-text="item.address.city" />
+				</Btn>
+			</div>
+			<div class="flex gap-x-6">
+				<Btn clean :to="soc.url" v-for="soc in SOCIALS" :key="soc.title">
+					<Svg :svg="soc.icon" class="border-white shadow-neon row-span-2" />
 				</Btn>
 			</div>
 
@@ -40,7 +52,7 @@ const { getMenuToggle } = mapActions(useMain, ['getMenuToggle'])
 const { getMenuClosed } = mapActions(useMain, ['getMenuClosed'])
 const { getContactData } = mapActions(useMain, ['getContactData'])
 
-const { toggleMenu, contact, salons } = storeToRefs(useMain())
+const { toggleMenu, contact, salons, SOCIALS } = storeToRefs(useMain())
 </script>
 <style scoped lang="postcss">
 .header {

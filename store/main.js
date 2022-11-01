@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia'
 import { useSalony } from './salony'
-const localAPI = 'http://localhost:3000/'
+// process.env.PUBLIC_NAME
+// const isDev = process.env.NODE_ENV !== 'production'
+// const isAPI = process.env.PUBLIC_NAME + '/api/'
 const sortOrder = (a, b) => {
 	return a.order > b.order ? -1 : 1
 }
@@ -15,8 +17,8 @@ export const useMain = defineStore('main', {
 		MODALCLOSE: true,
 		MODALTOGGLE: false,
 		SOCIALS: [
-			{ title: 'telegram', url: '#', icon: 'telegram' },
-			{ title: 'whatsapp', url: '#', icon: 'whatsapp' },
+			{ title: 'telegram', url: '#', icon: 'logos:telegram' },
+			{ title: 'whatsapp', url: '#', icon: 'logos:whatsapp-icon' },
 		],
 		CONTACT: [],
 		DOCS: [{ title: 'Пользовательское соглашение', url: '#' }],
@@ -68,7 +70,11 @@ export const useMain = defineStore('main', {
 		async getGoods() {
 			if (!this.GOODS.length) {
 				try {
-					const API = await $fetch(`${localAPI}local/goods.json`)
+					const API = await $fetch(`${process.env.PUBLIC_NAME}/api/goods`, {
+						headers: {
+							'Access-Control-Allow-Origin': '*',
+						},
+					})
 					this.GOODSLENGTH = API.length
 					return (this.GOODS = API.sort(sortOrder))
 				} catch (err) {
@@ -78,7 +84,11 @@ export const useMain = defineStore('main', {
 		},
 		async getStaff(url) {
 			try {
-				this.STAFF = await $fetch(`${localAPI}local/${url}.json`)
+				this.STAFF = await $fetch(`${process.env.PUBLIC_NAME}/api/${url}`, {
+					headers: {
+						'Access-Control-Allow-Origin': '*',
+					},
+				})
 			} catch (err) {
 				console.log(err)
 				await navigateTo(`/`)
