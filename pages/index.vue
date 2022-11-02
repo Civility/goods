@@ -50,11 +50,14 @@
 import { useMq } from 'vue3-mq'
 import { storeToRefs } from 'pinia'
 import { useMain } from '@/store/main.js'
-
+const config = useRuntimeConfig()
 const { getGoods } = useMain()
 const { goods, goodsLength } = storeToRefs(useMain())
-const { pending: goodsWait, data: goodsData } = await useLazyAsyncData('goods', () => getGoods())
-
+const { pending: goodsWait, data: goodsData, error } = await useLazyAsyncData('goods', () => getGoods(config.public.PUBLIC_NAME))
+if (error.value) {
+	await navigateTo(`/`)
+	throw createError()
+}
 const elX = shallowRef(0)
 const elY = shallowRef(0)
 const mouseWatch = (val) => {

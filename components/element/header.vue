@@ -1,8 +1,8 @@
 <template>
 	<header class="header" :class="{ 'header--active h-screen !fixed': toggleMenu }">
 		<div class="container flex flex-wrap justify-between items-center md:gap-8 gap-4">
-			<NuxtLink to="/" @click="getMenuClosed()" class="md:order-none order-1 z-10">
-				<img src="/assets/svg/logo.svg" height="48" width="48" alt="logo" />
+			<NuxtLink to="/" @click="getMenuClosed()" class="md:order-none order-1 z-10" exact>
+				<img src="~/assets/svg/logo.svg" height="48" width="48" alt="logo" />
 			</NuxtLink>
 			<!-- <div class="flex gap-4 mt-auto">
 					<Btn sec class="gap-2 !px-4 !w-full" :to="soc.url" v-for="soc in SOCIALS" :key="soc.title">
@@ -46,8 +46,9 @@
 import { storeToRefs, mapActions } from 'pinia'
 import { useMain } from '@/store/main.js'
 import { useSalony } from '@/store/salony.js'
+const config = useRuntimeConfig()
 const { getSalony } = useSalony()
-const { pending: salonyWait, data: salonyData } = await useLazyAsyncData('salony', () => getSalony())
+const { pending: salonyWait, data: salonyData } = await useLazyAsyncData('salony', () => getSalony(config.public.PUBLIC_NAME))
 const { getMenuToggle } = mapActions(useMain, ['getMenuToggle'])
 const { getMenuClosed } = mapActions(useMain, ['getMenuClosed'])
 const { getContactData } = mapActions(useMain, ['getContactData'])

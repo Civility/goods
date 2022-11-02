@@ -7,9 +7,14 @@
 <script setup>
 import { storeToRefs } from 'pinia'
 import { useVacancy } from '@/store/vacancy.js'
+const config = useRuntimeConfig()
 const { getVacancy } = useVacancy()
 const { vacancy } = storeToRefs(useVacancy())
 
-const { pending: vacancyWait, data: vacancyData } = await useLazyAsyncData('vacancy', () => getVacancy())
+const { pending: vacancyWait, data: vacancyData, error } = await useLazyAsyncData('vacancy', () => getVacancy(config.public.PUBLIC_NAME))
 const isAsideList = computed(() => vacancy.value.map(({ url, title, img_bg }) => ({ url, title, img_bg })))
+if (error.value) {
+	await navigateTo(`/`)
+	throw createError()
+}
 </script>

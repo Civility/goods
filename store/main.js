@@ -30,7 +30,7 @@ export const useMain = defineStore('main', {
 		NOWDATE: new Date().getFullYear(),
 		GOODSLENGTH: null,
 		GOODS: [],
-		STAFF: {},
+		STAFF: null,
 		SALONS: [],
 	}),
 	getters: {
@@ -67,14 +67,10 @@ export const useMain = defineStore('main', {
 		getModalToggle(val) {
 			this.MODALTOGGLE = val
 		},
-		async getGoods() {
+		async getGoods(PUBLIC_NAME) {
 			if (!this.GOODS.length) {
 				try {
-					const API = await $fetch(`${process.env.PUBLIC_NAME}/api/goods`, {
-						headers: {
-							'Access-Control-Allow-Origin': '*',
-						},
-					})
+					const API = await $fetch(`${PUBLIC_NAME}/api/goods`)
 					this.GOODSLENGTH = API.length
 					return (this.GOODS = API.sort(sortOrder))
 				} catch (err) {
@@ -82,16 +78,13 @@ export const useMain = defineStore('main', {
 				}
 			}
 		},
-		async getStaff(url) {
+		async getStaff(PUBLIC_NAME, url) {
 			try {
-				this.STAFF = await $fetch(`${process.env.PUBLIC_NAME}/api/${url}`, {
-					headers: {
-						'Access-Control-Allow-Origin': '*',
-					},
-				})
+				this.STAFF = await $fetch(`${PUBLIC_NAME}/api/goods/${url}`)
 			} catch (err) {
 				console.log(err)
 				await navigateTo(`/`)
+
 			}
 		},
 	},

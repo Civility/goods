@@ -3,7 +3,6 @@
 		<MouseParallax x="50" y="50" :mouseX="elX" :mouseY="elY" class="mouse-parallax__main" v-if="useMq().mdPlus" />
 		<MouseParallax x="50" y="10" :mouseX="elX" :mouseY="elY" class="mouse-parallax__sec" v-if="useMq().mdPlus" />
 		<MouseParallax x="10" y="50" :mouseX="elX" :mouseY="elY" class="mouse-parallax__some" v-if="useMq().mdPlus" />
-
 		<div class="col-span-full">
 			<Slider
 				:data="uslugiURL.slider"
@@ -18,26 +17,25 @@
 					disableOnInteraction: true,
 				}"
 				:navigation="{
-					prevEl: '#salonyPrev',
-					nextEl: '#salonyNext',
+					prevEl: '#uslugiPrev',
+					nextEl: '#uslugiNext',
 				}"
 				:pagination="{
 					clickable: true,
 				}"
 			>
 				<template #content="{ slider }">
-					<!-- <img :src="`/img/slider/${slider}`" :alt="slider" class="block w-full h-full object-cover max-h-[470px]" /> -->
-					<img :src="`${config.public.G_IMG}${slider}`" :alt="slider" class="w-full h-full object-cover" />
+					<img :src="`${config.G_IMG}${slider}`" :alt="slider" class="w-full h-full object-cover" />
 					<nav class="absolute inset-0 w-full h-full flex justify-between">
-						<Btn clean id="salonyPrev" class="salony__nav-prev"> &#129168;</Btn>
-						<Btn clean id="salonyNext" class="salony__nav-next">&#129170;</Btn>
+						<Btn clean id="uslugiPrev" class="uslugi__nav-prev"><Svg svg="ic:twotone-arrow-back-ios-new" /></Btn>
+						<Btn clean id="uslugiNext" class="uslugi__nav-next"><Svg svg="ic:twotone-arrow-forward-ios" /></Btn>
 					</nav>
 				</template>
 			</Slider>
 		</div>
 		<div class="col-span-full relative z-10 text-shadow shadow-inner rounded-md py-10 px-5 bg-dark/50">
-			<h2 v-text="uslugiURL.title" />
-			<div v-html="uslugiURL.text" />
+			<h2 v-text="uslugiURL?.title" />
+			<div v-html="uslugiURL?.text" />
 		</div>
 	</section>
 </template>
@@ -45,10 +43,11 @@
 import { useMq } from 'vue3-mq'
 import { storeToRefs } from 'pinia'
 import { useUslugi } from '@/store/uslugi.js'
-const config = useRuntimeConfig()
+const config = useRuntimeConfig().public
+const url = useRoute().params.url
 const { getUslugiURL } = useUslugi()
 const { uslugiURL } = storeToRefs(useUslugi())
-watchEffect(() => getUslugiURL())
+const { pending: uslugiURLWait, data: uslugiURLData } = useLazyAsyncData('uslugiurl', () => getUslugiURL(config.PUBLIC_NAME, url))
 const elX = shallowRef(0)
 const elY = shallowRef(0)
 const mouseWatch = (val) => {

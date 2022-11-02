@@ -5,23 +5,21 @@ export const useVacancy = defineStore('vacancy', {
 	state: () => ({
 		VACANCY: [],
 
-		VACANCYURL: [],
+		VACANCYURL: null,
 	}),
 	getters: {
 		vacancy: (s) => s.VACANCY,
 		vacancyURL: (s) => s.VACANCYURL[0],
 	},
 	actions: {
-		async getVacancy() {
-			try {
-				this.VACANCY = await $fetch(`${process.env.PUBLIC_NAME}/api/vacancy`, {
-					headers: {
-						'Access-Control-Allow-Origin': '*',
-					},
-				})
-			} catch (err) {
-				console.log(err)
-				await navigateTo(`/`)
+		async getVacancy(PUBLIC_NAME) {
+			if (!this.VACANCY.length) {
+				try {
+					this.VACANCY = await $fetch(`${PUBLIC_NAME}/api/vacancy`)
+				} catch (err) {
+					console.log(err)
+					await navigateTo(`/`)
+				}
 			}
 		},
 		async getVacancyURL() {

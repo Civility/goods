@@ -10,13 +10,11 @@
 	</div>
 </template>
 <script setup>
-import { storeToRefs } from 'pinia'
 import { useSalony } from '@/store/salony.js'
 const config = useRuntimeConfig()
 const { getSalony } = useSalony()
-const { salony } = storeToRefs(useSalony())
-watchEffect(() => getSalony())
 
+watchEffect(() => getSalony(config.public.PUBLIC_NAME))
 defineProps({
 	data: Array,
 })

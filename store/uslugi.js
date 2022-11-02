@@ -4,28 +4,27 @@ import { defineStore } from 'pinia'
 export const useUslugi = defineStore('uslugi', {
 	state: () => ({
 		USLUGI: [],
-		USLUGIURL: [],
+		USLUGIURL: null,
 	}),
 	getters: {
 		uslugi: (s) => s.USLUGI,
-		uslugiURL: (s) => s.USLUGIURL[0],
+		uslugiURL: (s) => s.USLUGIURL,
 	},
 	actions: {
-		async getUslugi() {
-			try {
-				this.USLUGI = await $fetch(`${process.env.PUBLIC_NAME}/api/uslugi`, {
-					headers: {
-						'Access-Control-Allow-Origin': '*',
-					},
-				})
-			} catch (err) {
-				console.log(err)
-				await navigateTo(`/`)
+		async getUslugi(PUBLIC_NAME) {
+			if (!this.USLUGI.length) {
+				try {
+					this.USLUGI = await $fetch(`${PUBLIC_NAME}/api/uslugi`)
+				} catch (err) {
+					console.log(err)
+					await navigateTo(`/`)
+					throw createError()
+				}
 			}
 		},
-		async getUslugiURL() {
+		async getUslugiURL(PUBLIC_NAME, url) {
 			try {
-				this.USLUGIURL = this.USLUGI.filter((item) => item.url === useRoute().params.url)
+				this.USLUGIURL = await $fetch(`${PUBLIC_NAME}/api/uslugi/${url}`)
 			} catch (err) {
 				console.log(err)
 				await navigateTo(`/`)

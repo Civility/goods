@@ -10,12 +10,11 @@
 	</div>
 </template>
 <script setup>
-import { storeToRefs } from 'pinia'
 import { useUslugi } from '@/store/uslugi.js'
 const config = useRuntimeConfig()
 const { getUslugi } = useUslugi()
-const { uslugi } = storeToRefs(useUslugi())
-watchEffect(() => getUslugi())
+
+watchEffect(() => getUslugi(config.public.PUBLIC_NAME))
 defineProps({
 	data: Array,
 })

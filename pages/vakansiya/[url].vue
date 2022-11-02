@@ -2,8 +2,8 @@
 	<section
 		@mousemove="mouseWatch"
 		class="md:py-10 py-8 mr-4 w-full relative bg-no-repeat bg-cover bg-scroll rounded-lg"
-		:style="`background-image: url('${vacancyURL.img?.big}');`"
-		v-if="vacancyURL"
+		:style="`background-image: url('${config.public.G_IMG}${vacancyURL.img?.big}');`"
+		v-if="!vacancyWait"
 	>
 		<MouseParallax x="50" y="50" :mouseX="elX" :mouseY="elY" class="mouse-parallax__main" v-if="useMq().mdPlus" />
 		<MouseParallax x="50" y="10" :mouseX="elX" :mouseY="elY" class="mouse-parallax__sec" v-if="useMq().mdPlus" />
@@ -18,9 +18,16 @@
 import { useMq } from 'vue3-mq'
 import { storeToRefs } from 'pinia'
 import { useVacancy } from '@/store/vacancy.js'
-const { getVacancyURL } = useVacancy()
+const config = useRuntimeConfig()
+const { getVacancyURL, getVacancy } = useVacancy()
 const { vacancyURL } = storeToRefs(useVacancy())
+
+const { pending: vacancyWait, data: vacancyData, error } = await useLazyAsyncData('vacancy', () => getVacancy(config.public.PUBLIC_NAME))
 watchEffect(() => getVacancyURL())
+if (error.value) {
+	await navigateTo(`/`)
+	throw createError()
+}
 const elX = shallowRef(0)
 const elY = shallowRef(0)
 const mouseWatch = (val) => {

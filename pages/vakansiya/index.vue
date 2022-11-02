@@ -10,12 +10,11 @@
 	</div>
 </template>
 <script setup>
-import { storeToRefs, mapActions } from 'pinia'
 import { useVacancy } from '@/store/vacancy.js'
 const config = useRuntimeConfig()
 const { getVacancy } = useVacancy()
-const { vacancy } = storeToRefs(useVacancy())
-watchEffect(() => getVacancy())
+
+watchEffect(() => getVacancy(config.public.PUBLIC_NAME))
 defineProps({
 	data: Array,
 })

@@ -9,28 +9,27 @@ export const useSalony = defineStore('salony', {
 	}),
 	getters: {
 		salony: (s) => s.SALONY,
-		salonyURL: (s) => s.SALONYURL[0],
+		salonyURL: (s) => s.SALONYURL,
 	},
 	actions: {
-		async getSalony() {
+		async getSalony(PUBLIC_NAME) {
 			if (!this.SALONY.length) {
 				try {
-					this.SALONY = await $fetch(`${process.env.PUBLIC_NAME}/api/salony`, {
-						headers: {
-							'Access-Control-Allow-Origin': '*',
-						},
-					})
+					this.SALONY = await $fetch(`${PUBLIC_NAME}/api/salony`)
 				} catch (err) {
 					console.log(err)
+					await navigateTo(`/`)
+					throw createError()
 				}
 			}
 		},
-		async getSalonyURL() {
+		async getSalonyURL(PUBLIC_NAME, url) {
 			try {
-				this.SALONYURL = this.SALONY.filter((item) => item.url === useRoute().params.url)
+				this.SALONYURL = await $fetch(`${PUBLIC_NAME}/api/salony/${url}`)
 			} catch (err) {
 				console.log(err)
 				await navigateTo(`/`)
+				throw createError()
 			}
 		},
 	},

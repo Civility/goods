@@ -22,7 +22,7 @@
 					</Btn>
 					<Modal refName="map" :show="showModal === 'map'" @isClickShow="(val) => isShow(val)">
 						<!-- <template #header>header</template> -->
-						<template #body> <img src="/assets/img/map1.webp" alt="map" /> </template>
+						<template #body> <img src="~/assets/img/map1.webp" alt="map" /> </template>
 						<!-- <template #footer>footer</template> -->
 					</Modal>
 				</div>
