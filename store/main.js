@@ -60,7 +60,6 @@ export const useMain = defineStore('main', {
 		getMenuToggle() {
 			this.TOGGLEMENU = !this.TOGGLEMENU
 		},
-
 		getMenuClosed() {
 			this.TOGGLEMENU = false
 		},
@@ -84,7 +83,6 @@ export const useMain = defineStore('main', {
 			} catch (err) {
 				console.log(err)
 				await navigateTo(`/`)
-
 			}
 		},
 	},

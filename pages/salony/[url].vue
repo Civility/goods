@@ -41,7 +41,7 @@
 		</div>
 
 		<div class="col-span-1 border border-main shadow-neon rounded-md p-4" v-if="salonyURL.socials">
-			<Btn clean class="gap-2 !px-4 !w-full" :to="socials.url" v-for="socials of salonyURL.socials">
+			<Btn clean class="gap-2 !px-4 !w-full" :to="`https://telegram.me/${socials.url}`" v-for="socials of salonyURL.socials">
 				<Svg :svg="`ic:outline-${socials.title}`" class="border-transparent" />
 				Сегодня работают
 			</Btn>

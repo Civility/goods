@@ -19,12 +19,6 @@
 							debitis libero, esse veritatis porro? Quaerat sapiente eligendi minus quasi, eveniet reiciendis adipisci?
 						</p>
 					</div>
-					<!-- <Btn class="shadow-neon gap-2 md:!w-80 !w-full" :to="`//t.me/${phone1}`">
-						<Svg svg="telegram" class="border-main-lighter" />
-					</Btn>
-					<Btn class="shadow-neon z-10 gap-2 md:!w-80 !w-full" :to="`//wa.me/${phone2}`">
-						<Svg svg="whatsapp" class="border-main-lighter" />
-					</Btn> -->
 				</div>
 			</div>
 		</section>

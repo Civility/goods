@@ -21,28 +21,18 @@
 						Карта
 					</Btn>
 					<Modal refName="map" :show="showModal === 'map'" @isClickShow="(val) => isShow(val)">
-						<!-- <template #header>header</template> -->
 						<template #body> <img src="~/assets/img/map1.webp" alt="map" /> </template>
-						<!-- <template #footer>footer</template> -->
 					</Modal>
 				</div>
-				<!-- <div class="flex gap-4 mt-auto">
-					<Btn sec class="gap-2 !px-4 !w-full" :to="soc.url" v-for="soc in SOCIALS" :key="soc.title">
-						<Svg :svg="soc.icon" class="border-white" />
-						{{ soc.title }}
-					</Btn>
-				</div> -->
 			</span>
 			<div class="col-span-full flex gap-4 mt-auto text-xs text-white/70">
 				<span class="max-w-max">{{ COPYRIGHT.low }}</span>
-				<!-- <span class="max-w-max">{{ COPYRIGHT.inn }}</span> -->
 			</div>
 		</div>
 	</footer>
 </template>
 <script setup>
-// import { useMq } from 'vue3-mq'
-import { storeToRefs, mapActions } from 'pinia'
+import { storeToRefs } from 'pinia'
 import { useMain } from '@/store/main.js'
 const { contact } = storeToRefs(useMain())
 const { COPYRIGHT, SOCIALS } = useMain()

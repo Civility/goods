@@ -42,7 +42,7 @@
 import { mapActions, storeToRefs } from 'pinia'
 import { useMain } from '@/store/main'
 const { modaltoggle } = storeToRefs(useMain())
-const { getModalToggle } = mapActions(useMain, ['getModalToggle']) // closed header
+const { getModalToggle } = mapActions(useMain, ['getModalToggle'])
 
 defineEmits(['isClickShow'])
 definePageMeta({
@@ -60,7 +60,6 @@ const props = defineProps({
 	},
 })
 const showModal = ref(false)
-// const isShow = (val) => (showModal.value = val)
 
 watch(
 	() => props.show,

@@ -1,6 +1,10 @@
 <template>
-	<div class="relative rounded overflow-hidden bg-sec shadow-mainLight group text-center transition-all hover:shadow-neon">
-		<img class="h-[26rem] mx-auto" :src="`${config.public.G_IMG}${data?.img?.mini}`" :alt="data.name" />
+	<div
+		class="relative rounded overflow-hidden bg-sec shadow-mainLight group text-center transition-all hover:shadow-neon"
+		:class="{ 'h-[26rem]': !data.img.mini }"
+	>
+		<img class="h-[26rem] mx-auto" :src="`${config.public.G_IMG}${data?.img?.mini}`" :alt="data.name" v-if="data.img.mini" />
+		<span v-else class="h-[26rem] mx-auto" />
 		<NuxtLink :to="data?.url" class="absolute inset-0 w-full h-full flex flex-col group">
 			<div
 				class="mt-auto lg:opacity-0 lg:group-hover:opacity-100 transition-all flex shadow text-xl flex-col bg-gradient-to-r from-sec/90 to-main/70 divide-y divide-main/70 lg:group-hover:to-main/70 lg:group-hover:from-sec/90 group-hover:shadow-neon"
