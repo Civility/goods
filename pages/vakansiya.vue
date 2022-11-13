@@ -1,6 +1,6 @@
 <template>
-	<main class="vacancy flex md:flex-row flex-col container !pr-0">
-		<NuxtPage :data="isAsideList" />
+	<main class="vacancy relative flex md:flex-row flex-col-reverse md:!pr-0">
+		<NuxtPage :data="isAsideList" class="container" />
 		<Sidemenu :data="isAsideList" link="vakansiya" />
 	</main>
 </template>

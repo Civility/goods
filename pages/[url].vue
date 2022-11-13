@@ -86,14 +86,14 @@
 					class="about col-span-full md:col-span-3 border border-black rounded-lg py-2 px-3 border-neon bg-gradient-to-r from-main to-main-dark"
 					v-html="STAFF?.text"
 				/>
-				<!-- <div class="col-span-full md:col-span-3 flex flex-wrap gap-4 mt-auto">
- 
-						<Btn class="gap-2 !px-4 !w-full" :to="soc.url" v-for="soc in SOCIALS" :key="soc.title">
-							<Svg :svg="soc.icon" class="border-white" />
-							{{ soc.title }}
-						</Btn>
-	 
-				</div> -->
+				<div class="md:col-span-3 flex gap-4 mt-auto">
+					<Btn clean to="https://telegram.me/+79215542968">
+						<Svg svg="logos:telegram" class="border-white" />
+					</Btn>
+					<Btn clean to="https://wa.me/+79215542968">
+						<Svg svg="logos:whatsapp-icon" class="border-white" />
+					</Btn>
+				</div>
 			</div>
 		</section>
 	</main>

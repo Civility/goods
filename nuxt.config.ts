@@ -2,7 +2,21 @@ import { getModules } from './config/modules'
 import { getTailwind, getGoogleFonts } from './config/modules/configModules'
 //
 const isDev = process.env.NODE_ENV !== 'production'
+
+// import path from 'path'
+// import fs from 'fs'
 export default defineNuxtConfig({
+	...(!isDev && {
+		experimental: { writeEarlyHints: false },
+		// vite: {
+		// 	server: {
+		// 		https: {
+		// 			key: fs.readFileSync(path.resolve(__dirname, 'vsalonesauna_ru.key')),
+		// 			cert: fs.readFileSync(path.resolve(__dirname, 'vsalonesauna_ru.crt')),
+		// 		},
+		// 	},
+		// },
+	}),
 	runtimeConfig: {
 		public: {
 			G_IMG: `${process.env.PUBLIC_NAME}/storage/app/media/`,
@@ -10,8 +24,9 @@ export default defineNuxtConfig({
 		},
 	},
 	telemetry: false,
+
 	meta: {
-		title: 'Goods',
+		title: 'АКТИВ-ПИТЕР',
 		htmlAttrs: { lang: 'ru' },
 		meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
 	},

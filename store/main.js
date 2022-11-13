@@ -62,6 +62,7 @@ export const useMain = defineStore('main', {
 		},
 		getMenuClosed() {
 			this.TOGGLEMENU = false
+			this.ASIDEMENU = false
 		},
 		getModalToggle(val) {
 			this.MODALTOGGLE = val

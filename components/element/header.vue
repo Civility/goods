@@ -4,14 +4,6 @@
 			<NuxtLink to="/" @click="useMain().getMenuClosed" class="md:order-none order-1 z-10" exact>
 				<img src="~/assets/svg/logo.svg" height="48" width="48" alt="logo" />
 			</NuxtLink>
-			<!-- <div class="flex gap-4 mt-auto">
-					<Btn sec class="gap-2 !px-4 !w-full" :to="soc.url" v-for="soc in SOCIALS" :key="soc.title">
-						<Svg :svg="soc.icon" class="border-white" />
-						{{ soc.title }}
-					</Btn>
-				</div> -->
-			<!-- <span class="text-neon font-neon xxl:text-xxl md:text-lg text-center">Круглосуточно 24/7</span> -->
-
 			<div class="header__address flex gap-4 flex-wrap md:w-auto w-full justify-center md:order-none order-3">
 				<Btn clean v-for="item in contact" :to="`tel:${item.number}`" class="!grid grid-cols-[40px,_1fr]">
 					<Svg svg="ic:baseline-call" class="border-white row-span-2" />
@@ -20,8 +12,11 @@
 				</Btn>
 			</div>
 			<div class="flex gap-x-6">
-				<Btn clean :to="soc.url" v-for="soc in SOCIALS" :key="soc.title">
-					<Svg :svg="soc.icon" class="border-white shadow-neon row-span-2" />
+				<Btn clean to="https://telegram.me/+79215542968">
+					<Svg svg="logos:telegram" class="border-white shadow-neon row-span-2" />
+				</Btn>
+				<Btn clean to="https://wa.me/+79215542968">
+					<Svg svg="logos:whatsapp-icon" class="border-white shadow-neon row-span-2" />
 				</Btn>
 			</div>
 
@@ -48,7 +43,7 @@ import { useMain } from '@/store/main.js'
 import { useSalony } from '@/store/salony.js'
 const config = useRuntimeConfig()
 const { getSalony } = useSalony()
-const { SOCIALS } = useMain()
+// const { SOCIALS } = useMain()
 const { pending: salonyWait, data: salonyData } = await useLazyAsyncData('salony', () => getSalony(config.public.PUBLIC_NAME))
 const { getContactData } = mapActions(useMain, ['getContactData'])
 const { contact, salons, getMenuToggle, toggleMenu, getMenuClosed } = storeToRefs(useMain())

@@ -30,17 +30,17 @@
 				</template>
 			</Slider>
 		</div>
-		<div class="col-span-4 border border-main rounded-md p-4" v-if="salonyURL.text || salonyURL.description">
+		<div class="lg:col-span-4 col-span-full border border-main rounded-md p-4" v-if="salonyURL.text || salonyURL.description">
 			<div v-html="salonyURL?.text" />
 			<div v-html="salonyURL?.description" />
 		</div>
 
-		<div class="col-span-1 border border-main rounded-md p-4" v-if="salonyURL.price">
+		<div class="lg:col-span-1 col-span-full border border-main rounded-md p-4" v-if="salonyURL.price">
 			<p v-if="salonyURL.price.min">Цена 1: <span v-text="salonyURL.price.min" /></p>
 			<p v-if="salonyURL.price.max">Цена 2: <span v-text="salonyURL.price.max" /></p>
 		</div>
 
-		<div class="col-span-1 border border-main shadow-neon rounded-md p-4" v-if="salonyURL.socials">
+		<div class="lg:col-span-1 col-span-full border border-main shadow-neon rounded-md p-4" v-if="salonyURL.socials">
 			<Btn clean class="gap-2 !px-4 !w-full" :to="`https://telegram.me/${socials.url}`" v-for="socials of salonyURL.socials">
 				<Svg :svg="`ic:outline-${socials.title}`" class="border-transparent" />
 				Сегодня работают

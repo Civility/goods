@@ -1,6 +1,6 @@
 <template>
-	<main class="uslugi flex md:flex-row flex-col container !pr-0" v-if="!uslugiWait">
-		<NuxtPage :data="uslugi" />
+	<main class="uslugi relative flex md:flex-row flex-col-reverse md:!pr-0">
+		<NuxtPage :data="uslugi" class="container" />
 		<Sidemenu :data="uslugi" link="uslugi" />
 	</main>
 </template>

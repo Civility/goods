@@ -1,5 +1,6 @@
 <template>
-	<main class="relative overflow-hidden">
+	<main class="relative overflow-hidden" v-if="localS">
+		<div v-if="$nuxt.isOffline">You are offline</div>
 		<section
 			@mousemove="mouseWatch"
 			class="relative bg-no-repeat bg-cover bg-scroll py-15"
@@ -9,15 +10,21 @@
 			<MouseParallax x="50" y="10" :mouseX="elX" :mouseY="elY" class="mouse-parallax__sec" v-if="useMq().mdPlus" />
 			<MouseParallax x="10" y="50" :mouseX="elX" :mouseY="elY" class="mouse-parallax__some" v-if="useMq().mdPlus" />
 			<div class="container flex flex-col justify-center items-center w-full h-full gap-12 md:px-20">
-				<div class="relative z-10 flex flex-col gap-6 justify-center items-center shadow-neon backdrop-blur rounded-md py-10 px-5">
-					<div class="text-xl border border-dark px-5 py-3 bg-dark/70 rounded-lg lg:mx-24 mx-10">
-						<h1 class="uppercase text-center mb-2">Realy my dolor</h1>
-						<p>
-							Corporis repellat nobis impedit velit excepturi, sint porro soluta quod rem. Quae dolore autem rerum numquam
-							excepturi rem impedit dicta quaerat tempora iusto. Maxime vitae earum, numquam qui dolor iure. Odio veniam sequi
-							expedita molestias a saepe ipsum numquam mollitia eligendi soluta inventore at amet repellendus doloribus
-							debitis libero, esse veritatis porro? Quaerat sapiente eligendi minus quasi, eveniet reiciendis adipisci?
-						</p>
+				<div
+					class="relative z-10 flex flex-col gap-6 justify-center items-center shadow-neon backdrop-blur rounded-md md:py-10 md:px-5"
+				>
+					<div class="text-xl border border-dark px-5 py-3 bg-dark/70 rounded-lg lg:mx-24 md:mx-10">
+						<h1 class="uppercase text-center mb-5 underline decoration-dotted decoration-main underline-offset-8 text-neon">АКТИВ-ПИТЕР</h1>
+						<ul v-for="text in mainTextList" class="list-disc list-inside">
+							<li v-text="text" />
+						</ul>
+						
+						<dd class="my-5" >
+							<dt class="mb-2 underline decoration-sec underline-offset-2 flex gap-3 justify-center items-center  "><Svg svg="ic:baseline-checklist-rtl"/> У нас вы можете взять в аренду:</dt>
+							<dl>- мангальные зоны </dl>
+							<dl>- бани-это 2-х этажный коттедж, который будет находиться только в вашем распоряжении</dl>
+						</dd>
+						<i class="font-neon">Звоните <a href="tel:+79057961" class="text-sec">905 79 61</a> в любое время и мы ответим на все интересующие Вас вопросы</i>
 					</div>
 				</div>
 			</div>
@@ -70,6 +77,22 @@ const textShow = computed(() => (size.value >= total.value ? 'Скрыть' : '�
 const goodslist = computed(() => goodsref.value.slice(0, size.value))
 
 const addShow = () => (total.value > size.value ? (size.value += addItem.value) : (size.value = SizeStatic.value))
+
+const localS = ref(false)
+
+if (process.client) {
+	localS.value = computed(() => localStorage.verification)
+}
+const mainTextList = [
+	'У нас в гостях Вам будет так же уютно, как дома',
+	'Спокойная атмосфера наших апартаментов располагает на отдых',
+	'Доброжелательный прием и Внимательный персонал всегда учтёт Ваши пожелания.',
+	'Бесплатные чай/кофе',
+	'Честно работаем уже более 7лет',
+	'Нам можно доверять',
+	'Большой ассортимент бара',
+	'Заказ еды или приготовление Шашлыков',
+]
 </script>
 <style lang="postcss">
 .mouse-parallax {

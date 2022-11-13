@@ -1,6 +1,6 @@
 <template>
-	<main class="salony flex md:flex-row flex-col container !pr-0" v-if="!salonyWait">
-		<NuxtPage :data="salony" />
+	<main class="salony relative flex md:flex-row flex-col-reverse md:!pr-0">
+		<NuxtPage :data="salony" class="container" />
 		<Sidemenu :data="salony" link="salony" />
 	</main>
 </template>
