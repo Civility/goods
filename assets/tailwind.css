@@ -55,7 +55,7 @@
 		@apply font-light;
 	}
 	a {
-		@apply hover:underline;
+		@apply hover:no-underline;
 	}
 	small {
 		@apply text-small;
@@ -81,7 +81,7 @@
 	}
 
 	.text-shadow {
-		text-shadow: 0 0 0 #000;
+		text-shadow: 1px 0 0 #00000066;
 	}
 	.text-neon {
 		@apply text-main-light;

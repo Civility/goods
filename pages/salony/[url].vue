@@ -30,20 +30,29 @@
 				</template>
 			</Slider>
 		</div>
-		<div class="lg:col-span-4 col-span-full border border-main rounded-md p-4" v-if="salonyURL.text || salonyURL.description">
+		<div class="xl:col-span-4 col-span-full border border-main rounded-md p-4" v-if="salonyURL.text || salonyURL.description">
 			<div v-html="salonyURL?.text" />
 			<div v-html="salonyURL?.description" />
 		</div>
 
-		<div class="lg:col-span-1 col-span-full border border-main rounded-md p-4" v-if="salonyURL.price">
-			<p v-if="salonyURL.price.min">Цена 1: <span v-text="salonyURL.price.min" /></p>
-			<p v-if="salonyURL.price.max">Цена 2: <span v-text="salonyURL.price.max" /></p>
+		<div
+			class="xl:col-span-1 md:col-span-3 col-span-full border border-main shadow-neon rounded-md p-4 flex flex-col"
+			v-if="salonyURL.price"
+		>
+			<dl class="flex">
+				<dd v-if="salonyURL.price.min" class="w-24 text-left text-sec-lighter">в салоне</dd>
+				<dt v-if="salonyURL.price.min" v-text="salonyURL.price.min"></dt>
+			</dl>
+
+			<dl class="flex">
+				<dd v-if="salonyURL.price.max" class="w-24 text-left text-sec-lighter">с выездом</dd>
+				<dt v-if="salonyURL.price.max" v-text="salonyURL.price.max"></dt>
+			</dl>
 		</div>
 
-		<div class="lg:col-span-1 col-span-full border border-main shadow-neon rounded-md p-4" v-if="salonyURL.socials">
-			<Btn clean class="gap-2 !px-4 !w-full" :to="`https://telegram.me/${socials.url}`" v-for="socials of salonyURL.socials">
-				<Svg :svg="`ic:outline-${socials.title}`" class="border-transparent" />
-				Сегодня работают
+		<div class="xl:col-span-1 md:col-span-3 col-span-full border border-main shadow-neon rounded-md p-4" v-if="salonyURL.socials">
+			<Btn clean class="gap-2 !px-4 !w-full" :to="socials.url" v-for="socials of salonyURL.socials">
+				Сегодня работают<Svg :svg="`ic:outline-${socials.title}`" class="border-transparent" />
 			</Btn>
 		</div>
 	</section>

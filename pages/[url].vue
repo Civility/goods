@@ -72,11 +72,11 @@
 						</dd>
 					</dl>
 					<dl class="wrap gap-y-3 gap-x-4 mb-8 py-4" v-if="STAFF.price?.min">
-						<dt class="col-span-2">Price min</dt>
+						<dt class="col-span-2">в салоне</dt>
 						<dd class="col-span-4 col-start-3" v-text="`${STAFF.price?.min} час`" />
 					</dl>
 					<dl class="wrap gap-y-3 gap-x-4 mb-8 py-4" v-if="STAFF.price?.max">
-						<dt class="col-span-2">Price max</dt>
+						<dt class="col-span-2">с выездом</dt>
 						<dd class="col-span-4 col-start-3" v-text="`${STAFF.price?.max} час`" />
 					</dl>
 				</div>
