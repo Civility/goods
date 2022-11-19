@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: */api/*
+Disallow: /api/*
+Host: vsalonesauna.ru
+Sitemap: https://vsalonesauna.ru/sitemap.xml

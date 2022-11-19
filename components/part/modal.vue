@@ -2,7 +2,7 @@
 	><Teleport to="body">
 		<div
 			:class="`modal-${refName}`"
-			class="modal"
+			class="fixed z-30 inset-0 overflow-y-auto bg-main bg-opacity-50"
 			:ref="refName"
 			v-if="showModal"
 			aria-modal="true"
@@ -48,6 +48,7 @@ defineEmits(['isClickShow'])
 definePageMeta({
 	keepalive: true,
 })
+
 const props = defineProps({
 	bgclass: String,
 	show: {
@@ -76,9 +77,3 @@ useHead({
 	},
 })
 </script>
-
-<style lang="postcss" scoped>
-.modal {
-	@apply fixed z-30 inset-0 overflow-y-auto bg-main/70 bg-opacity-50;
-}
-</style>

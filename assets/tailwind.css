@@ -79,7 +79,11 @@
 			@apply grid grid-cols-6 md:grid-cols-12 gap-5;
 		}
 	}
-
+	.router-link-active {
+		&:not([href='/']) {
+			@apply !shadow-neon;
+		}
+	}
 	.text-shadow {
 		text-shadow: 1px 0 0 #00000066;
 	}

@@ -18,9 +18,6 @@
 	</aside>
 </template>
 <script setup>
-definePageMeta({
-	keepalive: true,
-})
 import { storeToRefs } from 'pinia'
 import { useMain } from '@/store/main.js'
 

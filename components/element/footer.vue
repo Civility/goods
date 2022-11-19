@@ -29,22 +29,13 @@
 				<span class="max-w-max">{{ COPYRIGHT.low }}</span>
 			</div>
 		</div>
-		<Modal refName="verification" :show="!localverification" @isClickShow="(val) => isShow(val)" class="bg-sec-light">
-			<template #body>
-				<h4 class="text-main">У Вас все хорошо ?</h4>
-			</template>
-			<template #footer>
-				<Btn @click="isHelp(true)">Да</Btn>
-				<Btn @click="isHelp(false)">Нет</Btn>
-			</template>
-		</Modal>
 	</footer>
 </template>
 <script setup>
 import { storeToRefs } from 'pinia'
 import { useMain } from '@/store/main.js'
 const { contact } = storeToRefs(useMain())
-const { COPYRIGHT, VERIFICATION } = useMain()
+const { COPYRIGHT } = useMain()
 const getUserRepositories = async () => {
 	repositories.value = await fetchUserRepositories(props.user)
 }
@@ -52,23 +43,4 @@ const showModal = shallowRef(null)
 
 const isShow = (val) => (showModal.value = val)
 const openModal = (modalRefName) => (showModal.value = modalRefName)
-
-const localverification = ref(false)
-function isVerification() {
-	if (process.client) {
-		localverification.value = localStorage.verification ?? localverification.value
-	}
-}
-function isHelp(val) {
-	if (process.client) {
-		localStorage.setItem('verification', val)
-
-		if (val) {
-			localverification.value = val
-		}
-	}
-}
-onMounted(() => {
-	isVerification()
-})
 </script>

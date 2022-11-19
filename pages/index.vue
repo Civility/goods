@@ -14,17 +14,18 @@
 					class="relative z-10 flex flex-col gap-6 justify-center items-center shadow-neon backdrop-blur rounded-md md:py-10 md:px-5"
 				>
 					<div class="text-xl border border-dark px-5 py-3 bg-dark/70 rounded-lg lg:mx-24 md:mx-10">
-						<h1 class="uppercase text-center mb-5 underline decoration-dotted decoration-main underline-offset-8 text-neon">АКТИВ-ПИТЕР</h1>
+						<h1 class="uppercase text-center mb-5      text-neon">АКТИВ-ПИТЕР</h1>
 						<ul v-for="text in mainTextList" class="list-disc list-inside">
 							<li v-text="text" />
 						</ul>
 						
 						<dd class="my-5" >
-							<dt class="mb-2 underline decoration-sec underline-offset-2 flex gap-3 justify-center items-center  "><Svg svg="ic:baseline-checklist-rtl"/> У нас вы можете взять в аренду:</dt>
+							<dt class="mb-2 underline decoration-sec underline-offset-2 flex gap-3 justify-center items-center">
+								<Svg svg="ic:baseline-checklist-rtl" /> У нас вы можете взять в аренду:</dt>
 							<dl>- мангальные зоны </dl>
 							<dl>- бани-это 2-х этажный коттедж, который будет находиться только в вашем распоряжении</dl>
 						</dd>
-						<i class="font-neon">Звоните <a href="tel:+79057961" class="text-sec">905 79 61</a> в любое время и мы ответим на все интересующие Вас вопросы</i>
+						<i class="font-neon">Звоните <a href="tel:+79057961" class="text-main text-3xl ">905 79 61</a> (Всеволожск) в любое время и мы ответим на все интересующие Вас вопросы</i>
 					</div>
 				</div>
 			</div>

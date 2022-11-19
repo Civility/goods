@@ -1,5 +1,6 @@
 module.exports = {
 	mode: 'jit',
+	safelist: ['router-link-active'],
 	content: [
 		'./components/**/*.{vue,js}',
 		'./layouts/**/*.vue',

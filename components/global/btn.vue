@@ -5,9 +5,8 @@
 </template>
 <script setup>
 const NuxtLink = resolveComponent('NuxtLink')
-definePageMeta({
-	keepalive: true,
-})
+
+
 const props = defineProps({
 	to: String,
 	sec: Boolean,
@@ -43,7 +42,7 @@ const isClass = computed(() => {
 	-webkit-appearance: none;
 
 	&__sec {
-		@apply !bg-sec hover:bg-sec-darker;
+		@apply !bg-sec hover:bg-sec-darker active:bg-sec-darker;
 		@apply box-decoration-clone bg-gradient-to-r from-sec to-main;
 	}
 	&__clear {

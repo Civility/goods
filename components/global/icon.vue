@@ -4,9 +4,6 @@
 	</i>
 </template>
 <script setup>
-definePageMeta({
-	keepalive: true,
-})
 defineProps({
 	svg: {
 		type: String,
