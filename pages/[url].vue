@@ -83,7 +83,19 @@
 			</div>
 			<div class="col-span-10 md:col-start-2 wrap" v-if="STAFF.text">
 				<div
-					class="about col-span-full md:col-span-3 border border-black rounded-lg py-2 px-3 border-neon bg-gradient-to-r from-main to-main-dark"
+					class="
+						about
+						col-span-full
+						md:col-span-3
+						border border-black
+						rounded-lg
+						py-2
+						px-3
+						border-neon
+						bg-gradient-to-r
+						from-main
+						to-main-dark
+					"
 					v-html="STAFF?.text"
 				/>
 				<div class="md:col-span-3 flex gap-4 mt-auto">
@@ -96,6 +108,11 @@
 				</div>
 			</div>
 		</section>
+		<Head>
+			<Title>{{ STAFF.name + STAFF?.meta_title }}</Title>
+			<Meta name="keywords" :content="STAFF.keywords" />
+			<Meta name="description" :content="STAFF?.meta_desc" />
+		</Head>
 	</main>
 </template>
 <script setup>

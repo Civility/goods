@@ -37,6 +37,10 @@
 			<h2 v-text="uslugiURL?.title" />
 			<div v-html="uslugiURL?.text" />
 		</div>
+		<Head>
+			<Title>{{ uslugiURL.title }}</Title>
+			<Meta name="keywords" :content="uslugiURL.keywords" />
+		</Head>
 	</section>
 </template>
 <script setup>
@@ -54,6 +58,10 @@ const mouseWatch = (val) => {
 	elX.value = val.clientX / window.innerWidth
 	elY.value = val.clientY / window.innerHeight
 }
+
+ 
+ 
+ 
 </script>
 <style lang="postcss" scoped>
 .mouse-parallax {

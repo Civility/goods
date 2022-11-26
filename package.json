@@ -20,11 +20,11 @@
     "@nuxtjs/tailwindcss": "latest",
     "@pinia/nuxt": "latest",
     "@tailwindcss/nesting": "latest",
+    "defu": "^6.1.0",
+    "nuxt": "3.0.0-rc.12",
     "nuxt-icon": "^0.1.7",
     "nuxt-swiper": "^0.1.5",
     "pinia": "latest",
-    "nuxt": "3.0.0-rc.12",
-    "defu": "^6.1.0",
     "vue3-mq": "latest"
   },
   "devDependencies": {

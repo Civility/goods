@@ -4,28 +4,29 @@
 		<section
 			@mousemove="mouseWatch"
 			class="relative bg-no-repeat bg-cover bg-scroll py-15"
-			style="background-image: url('/img/bg.webp');"
+			style="background-image: url('/img/bg.webp')"
 		>
 			<MouseParallax x="50" y="50" :mouseX="elX" :mouseY="elY" class="mouse-parallax__main" v-if="useMq().mdPlus" />
 			<MouseParallax x="50" y="10" :mouseX="elX" :mouseY="elY" class="mouse-parallax__sec" v-if="useMq().mdPlus" />
 			<MouseParallax x="10" y="50" :mouseX="elX" :mouseY="elY" class="mouse-parallax__some" v-if="useMq().mdPlus" />
 			<div class="container flex flex-col justify-center items-center w-full h-full gap-12 md:px-20">
 				<div
-					class="relative z-10 flex flex-col gap-6 justify-center items-center shadow-neon backdrop-blur rounded-md md:py-10 md:px-5"
+					class="
+						relative
+						z-10
+						flex flex-col
+						gap-6
+						justify-center
+						items-center
+						shadow-neon
+						backdrop-blur
+						rounded-md
+						md:py-10 md:px-5
+					"
 				>
 					<div class="text-xl border border-dark px-5 py-3 bg-dark/70 rounded-lg lg:mx-24 md:mx-10">
-						<h1 class="uppercase text-center mb-5      text-neon">АКТИВ-ПИТЕР</h1>
-						<ul v-for="text in mainTextList" class="list-disc list-inside">
-							<li v-text="text" />
-						</ul>
-						
-						<dd class="my-5" >
-							<dt class="mb-2 underline decoration-sec underline-offset-2 flex gap-3 justify-center items-center">
-								<Svg svg="ic:baseline-checklist-rtl" /> У нас вы можете взять в аренду:</dt>
-							<dl>- мангальные зоны </dl>
-							<dl>- бани-это 2-х этажный коттедж, который будет находиться только в вашем распоряжении</dl>
-						</dd>
-						<i class="font-neon">Звоните <a href="tel:+79057961" class="text-main text-3xl ">905 79 61</a> (Всеволожск) в любое время и мы ответим на все интересующие Вас вопросы</i>
+						<h1 class="uppercase text-center mb-5 text-neon">{{ main.title }}</h1>
+						<div v-html="main.text" />
 					</div>
 				</div>
 			</div>
@@ -49,6 +50,9 @@
 	</main>
 </template>
 <script setup>
+defineProps({
+	main: Array,
+})
 import { useMq } from 'vue3-mq'
 import { storeToRefs } from 'pinia'
 import { useMain } from '@/store/main.js'

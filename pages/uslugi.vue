@@ -2,6 +2,10 @@
 	<main class="uslugi relative flex md:flex-row flex-col-reverse md:!pr-0">
 		<NuxtPage :data="uslugi" class="container" />
 		<Sidemenu :data="uslugi" link="uslugi" />
+		<Head>
+			<Title>Услуги</Title>
+			<Meta name="keywords" :content="uslugi.map((i) => i.title)" />
+		</Head>
 	</main>
 </template>
 <script setup>

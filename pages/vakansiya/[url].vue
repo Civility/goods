@@ -12,7 +12,12 @@
 			<h2 v-text="vacancyURL.title" />
 			<div v-html="vacancyURL.text" />
 		</div>
+
 	</section>
+				<Head>
+				<Title>{{ vacancyURL.title }}</Title>
+				<Meta name="keywords" :content="metaKeywords" />
+			</Head>
 </template>
 <script setup>
 import { useMq } from 'vue3-mq'
@@ -34,6 +39,7 @@ const mouseWatch = (val) => {
 	elX.value = val.clientX / window.innerWidth
 	elY.value = val.clientY / window.innerHeight
 }
+const metaKeywords = ref(vacancyURL.value.keywords.map(i => i.keyword))
 </script>
 <style lang="postcss" scoped>
 .mouse-parallax {

@@ -55,7 +55,12 @@
 				Сегодня работают<Svg :svg="`ic:outline-${socials.title}`" class="border-transparent" />
 			</Btn>
 		</div>
+		 		<Head>
+      <Title>{{ salonyURL.title }}</Title>
+      <Meta name="keywords" :content="salonyURL.keywords" />
+    </Head>
 	</section>
+ 
 </template>
 <script setup>
 import { storeToRefs } from 'pinia'
@@ -66,4 +71,5 @@ const { getSalonyURL } = useSalony()
 const { salonyURL } = storeToRefs(useSalony())
 
 const { pending: salonyURLWait, data: salonyURLData, refresh } = useLazyAsyncData('salonyurl', () => getSalonyURL(config.PUBLIC_NAME, url))
+ 
 </script>

@@ -2,6 +2,10 @@
 	<main class="vacancy relative flex md:flex-row flex-col-reverse md:!pr-0">
 		<NuxtPage :data="isAsideList" class="container" />
 		<Sidemenu :data="isAsideList" link="vakansiya" />
+		<Head>
+			<Title>Вакансии</Title>
+			<Meta name="keywords" :content="isAsideList.map((i) => i.title)" />
+		</Head>
 	</main>
 </template>
 <script setup>

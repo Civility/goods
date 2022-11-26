@@ -24,14 +24,14 @@ export const useMain = defineStore('main', {
 		DOCS: [{ title: 'Пользовательское соглашение', url: '#' }],
 		COPYRIGHT: {
 			low: '© Все права зарегистрированы.',
-			inn: 'ООО "goods Финанс"',
+			inn: '"AКТИВ-ПИТЕР"',
 		},
-
 		NOWDATE: new Date().getFullYear(),
 		GOODSLENGTH: null,
 		GOODS: [],
 		STAFF: null,
 		SALONS: [],
+		MAIN: [],
 	}),
 	getters: {
 		salons(s) {
@@ -49,6 +49,7 @@ export const useMain = defineStore('main', {
 		goodsLength: (s) => s.GOODSLENGTH,
 		goods: (s) => s.GOODS,
 		staff: (s) => s.STAFF,
+		main: (s) => s.MAIN,
 	},
 	actions: {
 		getAsideMenu() {
@@ -66,6 +67,15 @@ export const useMain = defineStore('main', {
 		},
 		getModalToggle(val) {
 			this.MODALTOGGLE = val
+		},
+		async getMain(PUBLIC_NAME) {
+			if (!this.main.length) {
+				try {
+					this.MAIN = await $fetch(`${PUBLIC_NAME}/api/main`)
+				} catch (err) {
+					console.log(err)
+				}
+			}
 		},
 		async getGoods(PUBLIC_NAME) {
 			if (!this.GOODS.length) {
