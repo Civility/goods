@@ -126,6 +126,7 @@
 }
 
 @layer utilities {
+
 	.scrollbar {
 		/* &::-webkit-scrollbar {
 			@apply w-1.5;

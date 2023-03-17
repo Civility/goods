@@ -2,6 +2,7 @@ import { getModules } from './config/modules'
 import { getTailwind, getGoogleFonts } from './config/modules/configModules'
 const isDev = process.env.NODE_ENV !== 'production'
 export default defineNuxtConfig({
+	telemetry: false,
 	...(!isDev && {
 		experimental: { writeEarlyHints: false },
 	}),
@@ -11,8 +12,6 @@ export default defineNuxtConfig({
 			PUBLIC_NAME: `${process.env.PUBLIC_NAME}`,
 		},
 	},
-	telemetry: false,
-
 	meta: {
 		title: 'АКТИВ-ПИТЕР',
 		htmlAttrs: { lang: 'ru' },

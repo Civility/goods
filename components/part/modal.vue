@@ -1,5 +1,6 @@
 <template
-	><Teleport to="body">
+	>
+	<Teleport to="body">
 		<div
 			:class="`modal-${refName}`"
 			class="fixed z-30 inset-0 overflow-y-auto bg-main bg-opacity-50"
@@ -18,11 +19,24 @@
 				leave-to-class="opacity-0"
 			>
 				<div class="flex items-center justify-center pt-24 text-center">
-					<div class="modal__content w-1/2 bg-white rounded-lg text-left overflow-hidden p-4 shadow-neon" :class="bgclass">
+					<div
+						class="modal__content lg:w-9/12 w-4/5 bg-white rounded-lg text-left overflow-hidden p-4 shadow-neon"
+						:class="bgclass"
+					>
 						<div class="modal__header relative">
 							<Btn clean class="modal__btn__close group absolute right-0 top-0" @click="$emit('isClickShow', false)">
 								<i
-									class="border border-main-lighter rounded-full w-10 h-10 flex items-center justify-center relative group-hover:bg-main group-hover:text-white group-hover:shadow-neon"
+									class="
+										border border-main-lighter
+										rounded-full
+										w-10
+										h-10
+										flex
+										items-center
+										justify-center
+										relative
+										group-hover:bg-main group-hover:text-white group-hover:shadow-neon
+									"
 								>
 									X
 								</i>

@@ -6,7 +6,7 @@
     "build": "nuxt build",
     "start_npx": "npx nuxi start",
     "startDev": "env NITRO_HOST=127.0.0.1 node .output/server/index.mjs",
-    "start": "env NITRO_HOST=127.0.4.143 NITRO_PORT=53619 node .output/server/index.mjs",
+    "start": "env NITRO_HOST=127.0.4.143 NITRO_PORT=52732 node .output/server/index.mjs",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",

@@ -1,14 +1,5 @@
 <template>
-	<div v-if="!localverification">
-		<Header />
-		<NuxtPage :main="main" />
-		<LazyFooter />
-		<Head>
-			<Meta name="keywords" :content="main.keywords" />
-		</Head>
-	</div>
-
-	<div v-else class="fixed z-30 inset-0 overflow-y-auto bg-gradient-to-t from-sec to-main">
+	<div v-if="!localverification" class="fixed z-30 inset-0 overflow-y-auto bg-gradient-to-t from-sec to-main">
 		<div class="flex items-center justify-center pt-24 text-center">
 			<div
 				class="
@@ -33,10 +24,19 @@
 						><Svg svg="mdi:alert-octagram" class="text-main mx-4 text-2xl" /> 18лет?</span
 					>
 				</h3>
-				<Btn sec @click.native.stop="isHelp(false)" class="!py-4 my-4 !w-1/2 text-2xl"> Да</Btn>
-				<Btn sec @click.native.stop="isHelp(true)" class="!py-4 !w-1/2 text-2xl"> Нет</Btn>
+				<Btn sec @click.native.stop="isHelp(true)" class="!py-4 my-4 !w-1/2 text-2xl"> Да</Btn>
+				<Btn sec @click.native.stop="isHelp(false)" class="!py-4 !w-1/2 text-2xl"> Нет</Btn>
 			</div>
 		</div>
+	</div>
+
+	<div v-else>
+		<Header />
+		<NuxtPage :main="main" />
+		<LazyFooter />
+		<Head>
+			<Meta name="keywords" :content="main.keywords" />
+		</Head>
 	</div>
 </template>
 <script setup>
@@ -47,17 +47,19 @@ const { getMain } = useMain()
 const { main } = storeToRefs(useMain())
 const { pending: mainWait, data: mainData, error } = await useLazyAsyncData('main', () => getMain(config.public.PUBLIC_NAME))
 
-
-const localverification = shallowRef(true)
-const isHelp = (val) => {
+const localverification = ref(false)
+const isHelp = (preops) => {
 	if (process.client) {
-		localStorage.setItem('verification', val)
-		localverification.value = val
+		localStorage.setItem('verification', preops)
+		localverification.value = preops
+		if (preops === false) {
+			window.close()
+		}
 	}
 }
 onMounted(() => {
 	if (process.client) {
-		localverification.value = localStorage.verification ?? localverification.value 
+		localverification.value = localStorage.verification ?? localverification.value
 	}
 })
 </script>
